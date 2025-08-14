@@ -1,0 +1,5536 @@
+API documentation
+http://127.0.0.1:7860/
+API Recorder
+198 API endpoints
+ 
+Choose a language to see the code snippets for interacting with the API.
+Python
+Javascript
+Bash
+1. Install the Python client (docs) if you don't already have it installed.
+copy
+$ pip install gradio_client
+2. Find the API endpoint below corresponding to your desired function in the app. Copy the code snippet, replacing the placeholder values with your own input data. Or use the 
+API Recorder
+ to automatically generate your API requests.
+api_name: /partial
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		visible_index="YouTube link/local path",
+		api_name="/partial"
+)
+print(result)
+Accepts 1 parameter:
+ 
+visible_index Literal['YouTube link/local path', 'Local file', 'Cached song'] Default: "YouTube link/local path"
+The input value that is provided in the "Source type" Dropdown component.
+Returns tuple of 3 elements
+ 
+[0] str
+The output value that appears in the "Source" Textbox component.
+ 
+[1] filepath
+The output value that appears in the "Source" Audio component.
+ 
+[2] Literal[]
+The output value that appears in the "Source" Dropdown component.
+api_name: /update_value
+copy
+from gradio_client import Client, handle_file
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		x=handle_file('https://github.com/gradio-app/gradio/raw/main/test/test_files/audio_sample.wav'),
+		api_name="/update_value"
+)
+print(result)
+Accepts 1 parameter:
+ 
+x filepath Required
+The input value that is provided in the "Source" Audio component. The FileData class is a subclass of the GradioModel class that represents a file object within a Gradio interface. It is used to store file data and metadata when a file is uploaded. Attributes: path: The server file path where the file is stored. url: The normalized server URL pointing to the file. size: The size of the file in bytes. orig_name: The original filename before upload. mime_type: The MIME type of the file. is_stream: Indicates whether the file is a stream. meta: Additional metadata used internally (should not be changed).
+Returns 1 element
+ 
+str
+The output value that appears in the "Source" Textbox component.
+api_name: /update_value_1
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		x=None,
+		api_name="/update_value_1"
+)
+print(result)
+Accepts 1 parameter:
+ 
+x Literal[] Required
+The input value that is provided in the "Source" Dropdown component.
+Returns 1 element
+ 
+str
+The output value that appears in the "Source" Textbox component.
+api_name: /partial_1
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		value=False,
+		api_name="/partial_1"
+)
+print(result)
+Accepts 1 parameter:
+ 
+value bool Default: False
+The input value that is provided in the "Autotune converted voice" Checkbox component.
+Returns 1 element
+ 
+float
+The output value that appears in the "Autotune intensity" Slider component.
+api_name: /partial_2
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		value=False,
+		api_name="/partial_2"
+)
+print(result)
+Accepts 1 parameter:
+ 
+value bool Default: False
+The input value that is provided in the "Clean converted voice" Checkbox component.
+Returns 1 element
+ 
+float
+The output value that appears in the "Cleaning intensity" Slider component.
+api_name: /partial_3
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		value="contentvec",
+		api_name="/partial_3"
+)
+print(result)
+Accepts 1 parameter:
+ 
+value Literal['contentvec', 'chinese-hubert-base', 'japanese-hubert-base', 'korean-hubert-base', 'custom'] Default: "contentvec"
+The input value that is provided in the "Embedder model" Dropdown component.
+Returns 1 element
+ 
+Literal[]
+The output value that appears in the "Custom embedder model" Dropdown component.
+api_name: /partial_4
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		visible=False,
+		api_name="/partial_4"
+)
+print(result)
+Accepts 1 parameter:
+ 
+visible bool Default: False
+The input value that is provided in the "Show intermediate audio" Checkbox component.
+Returns 1 element
+api_name: /partial_5
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		param_0="Hello!!",
+		param_1=None,
+		param_2=0,
+		param_3=0,
+		param_4=["rmvpe"],
+		param_5=0.3,
+		param_6=1,
+		param_7=0.33,
+		param_8=128,
+		param_9=False,
+		param_10=False,
+		param_11=1,
+		param_12=False,
+		param_13=0.7,
+		param_14="contentvec",
+		param_15=None,
+		param_16=0,
+		param_17=0.15,
+		param_18=0.2,
+		param_19=0.8,
+		param_20=0.7,
+		param_21=0,
+		param_22=0,
+		param_23=0,
+		param_24="44100",
+		param_25="mp3",
+		param_26="Hello!!",
+		api_name="/partial_5"
+)
+print(result)
+Accepts 27 parameters:
+ 
+param_0 str Required
+The input value that is provided in the "Source" Textbox component.
+ 
+param_1 Literal[] Required
+The input value that is provided in the "Voice model" Dropdown component.
+ 
+param_2 float Default: 0
+The input value that is provided in the "Vocal pitch shift" Slider component.
+ 
+param_3 float Default: 0
+The input value that is provided in the "Overall pitch shift" Slider component.
+ 
+param_4 list[Literal['rmvpe', 'crepe', 'crepe-tiny', 'fcpe']] Default: ["rmvpe"]
+The input value that is provided in the "Pitch extraction algorithm(s)" Dropdown component.
+ 
+param_5 float Default: 0.3
+The input value that is provided in the "Index rate" Slider component.
+ 
+param_6 float Default: 1
+The input value that is provided in the "RMS mix rate" Slider component.
+ 
+param_7 float Default: 0.33
+The input value that is provided in the "Protect rate" Slider component.
+ 
+param_8 float Default: 128
+The input value that is provided in the "Hop length" Slider component.
+ 
+param_9 bool Default: False
+The input value that is provided in the "Split input voice" Checkbox component.
+ 
+param_10 bool Default: False
+The input value that is provided in the "Autotune converted voice" Checkbox component.
+ 
+param_11 float Default: 1
+The input value that is provided in the "Autotune intensity" Slider component.
+ 
+param_12 bool Default: False
+The input value that is provided in the "Clean converted voice" Checkbox component.
+ 
+param_13 float Default: 0.7
+The input value that is provided in the "Cleaning intensity" Slider component.
+ 
+param_14 Literal['contentvec', 'chinese-hubert-base', 'japanese-hubert-base', 'korean-hubert-base', 'custom'] Default: "contentvec"
+The input value that is provided in the "Embedder model" Dropdown component.
+ 
+param_15 Literal[] Required
+The input value that is provided in the "Custom embedder model" Dropdown component.
+ 
+param_16 float Default: 0
+The input value that is provided in the "Speaker ID" Number component.
+ 
+param_17 float Default: 0.15
+The input value that is provided in the "Room size" Slider component.
+ 
+param_18 float Default: 0.2
+The input value that is provided in the "Wetness level" Slider component.
+ 
+param_19 float Default: 0.8
+The input value that is provided in the "Dryness level" Slider component.
+ 
+param_20 float Default: 0.7
+The input value that is provided in the "Damping level" Slider component.
+ 
+param_21 float Default: 0
+The input value that is provided in the "Main gain" Slider component.
+ 
+param_22 float Default: 0
+The input value that is provided in the "Instrumentals gain" Slider component.
+ 
+param_23 float Default: 0
+The input value that is provided in the "Backup gain" Slider component.
+ 
+param_24 Literal['16000', '44100', '48000', '96000', '192000'] Default: "44100"
+The input value that is provided in the "Output sample rate" Dropdown component.
+ 
+param_25 Literal['mp3', 'wav', 'flac', 'ogg', 'm4a', 'aac'] Default: "mp3"
+The input value that is provided in the "Output format" Dropdown component.
+ 
+param_26 str Required
+The input value that is provided in the "Output name" Textbox component.
+Returns tuple of 12 elements
+ 
+[0] filepath
+The output value that appears in the "Song cover" Audio component.
+ 
+[1] filepath
+The output value that appears in the "Song" Audio component.
+ 
+[2] filepath
+The output value that appears in the "Vocals" Audio component.
+ 
+[3] filepath
+The output value that appears in the "Instrumentals" Audio component.
+ 
+[4] filepath
+The output value that appears in the "Main vocals" Audio component.
+ 
+[5] filepath
+The output value that appears in the "Backup vocals" Audio component.
+ 
+[6] filepath
+The output value that appears in the "De-reverbed main vocals" Audio component.
+ 
+[7] filepath
+The output value that appears in the "Main vocals with reverb" Audio component.
+ 
+[8] filepath
+The output value that appears in the "Converted vocals" Audio component.
+ 
+[9] filepath
+The output value that appears in the "Postprocessed vocals" Audio component.
+ 
+[10] filepath
+The output value that appears in the "Pitch-shifted instrumentals" Audio component.
+ 
+[11] filepath
+The output value that appears in the "Pitch-shifted backup vocals" Audio component.
+api_name: /partial_6
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_6"
+)
+print(result)
+Accepts 0 parameters:
+Returns tuple of 8 elements
+ 
+[0] Literal[]
+The output value that appears in the "Source" Dropdown component.
+ 
+[1] Literal[]
+The output value that appears in the "Source" Dropdown component.
+ 
+[2] list[Literal[]]
+The output value that appears in the "Song directories" Dropdown component.
+ 
+[3] Literal[]
+The output value that appears in the "Song directory" Dropdown component.
+ 
+[4] Literal[]
+The output value that appears in the "Song directory" Dropdown component.
+ 
+[5] Literal[]
+The output value that appears in the "Song directory" Dropdown component.
+ 
+[6] Literal[]
+The output value that appears in the "Song directory" Dropdown component.
+ 
+[7] Literal[]
+The output value that appears in the "Song directory" Dropdown component.
+api_name: /partial_7
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_7"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+ 
+list[Literal[]]
+The output value that appears in the "Output audio files" Dropdown component.
+api_name: /lambda
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/lambda"
+)
+print(result)
+Accepts 0 parameters:
+Returns tuple of 24 elements
+ 
+[0] float
+The output value that appears in the "Vocal pitch shift" Slider component.
+ 
+[1] float
+The output value that appears in the "Overall pitch shift" Slider component.
+ 
+[2] list[Literal['rmvpe', 'crepe', 'crepe-tiny', 'fcpe']]
+The output value that appears in the "Pitch extraction algorithm(s)" Dropdown component.
+ 
+[3] float
+The output value that appears in the "Index rate" Slider component.
+ 
+[4] float
+The output value that appears in the "RMS mix rate" Slider component.
+ 
+[5] float
+The output value that appears in the "Protect rate" Slider component.
+ 
+[6] float
+The output value that appears in the "Hop length" Slider component.
+ 
+[7] bool
+The output value that appears in the "Split input voice" Checkbox component.
+ 
+[8] bool
+The output value that appears in the "Autotune converted voice" Checkbox component.
+ 
+[9] float
+The output value that appears in the "Autotune intensity" Slider component.
+ 
+[10] bool
+The output value that appears in the "Clean converted voice" Checkbox component.
+ 
+[11] float
+The output value that appears in the "Cleaning intensity" Slider component.
+ 
+[12] Literal['contentvec', 'chinese-hubert-base', 'japanese-hubert-base', 'korean-hubert-base', 'custom']
+The output value that appears in the "Embedder model" Dropdown component.
+ 
+[13] float
+The output value that appears in the "Speaker ID" Number component.
+ 
+[14] float
+The output value that appears in the "Room size" Slider component.
+ 
+[15] float
+The output value that appears in the "Wetness level" Slider component.
+ 
+[16] float
+The output value that appears in the "Dryness level" Slider component.
+ 
+[17] float
+The output value that appears in the "Damping level" Slider component.
+ 
+[18] float
+The output value that appears in the "Main gain" Slider component.
+ 
+[19] float
+The output value that appears in the "Instrumentals gain" Slider component.
+ 
+[20] float
+The output value that appears in the "Backup gain" Slider component.
+ 
+[21] Literal['16000', '44100', '48000', '96000', '192000']
+The output value that appears in the "Output sample rate" Dropdown component.
+ 
+[22] Literal['mp3', 'wav', 'flac', 'ogg', 'm4a', 'aac']
+The output value that appears in the "Output format" Dropdown component.
+ 
+[23] bool
+The output value that appears in the "Show intermediate audio" Checkbox component.
+api_name: /partial_8
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		visible_index="YouTube link/local path",
+		api_name="/partial_8"
+)
+print(result)
+Accepts 1 parameter:
+ 
+visible_index Literal['YouTube link/local path', 'Local file', 'Cached song'] Default: "YouTube link/local path"
+The input value that is provided in the "Source type" Dropdown component.
+Returns tuple of 3 elements
+ 
+[0] str
+The output value that appears in the "Source" Textbox component.
+ 
+[1] filepath
+The output value that appears in the "Source" Audio component.
+ 
+[2] Literal[]
+The output value that appears in the "Source" Dropdown component.
+api_name: /update_value_2
+copy
+from gradio_client import Client, handle_file
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		x=handle_file('https://github.com/gradio-app/gradio/raw/main/test/test_files/audio_sample.wav'),
+		api_name="/update_value_2"
+)
+print(result)
+Accepts 1 parameter:
+ 
+x filepath Required
+The input value that is provided in the "Source" Audio component. The FileData class is a subclass of the GradioModel class that represents a file object within a Gradio interface. It is used to store file data and metadata when a file is uploaded. Attributes: path: The server file path where the file is stored. url: The normalized server URL pointing to the file. size: The size of the file in bytes. orig_name: The original filename before upload. mime_type: The MIME type of the file. is_stream: Indicates whether the file is a stream. meta: Additional metadata used internally (should not be changed).
+Returns 1 element
+ 
+str
+The output value that appears in the "Source" Textbox component.
+api_name: /update_value_3
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		x=None,
+		api_name="/update_value_3"
+)
+print(result)
+Accepts 1 parameter:
+ 
+x Literal[] Required
+The input value that is provided in the "Source" Dropdown component.
+Returns 1 element
+ 
+str
+The output value that appears in the "Source" Textbox component.
+api_name: /lambda_1
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/lambda_1"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+ 
+list[Literal['Step 1: audio', 'Step 2: vocals', 'Step 3: vocals', 'Step 4: instrumentals', 'Step 4: backup vocals', 'Step 5: main vocals', 'Step 5: instrumentals', 'Step 5: backup vocals']]
+The output value that appears in the "Song destination" Dropdown component.
+api_name: /partial_9
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		param_0="Hello!!",
+		api_name="/partial_9"
+)
+print(result)
+Accepts 1 parameter:
+ 
+param_0 str Required
+The input value that is provided in the "Source" Textbox component.
+Returns 1 element
+ 
+filepath
+The output value that appears in the "Song" Audio component.
+api_name: /partial_10
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_10"
+)
+print(result)
+Accepts 0 parameters:
+Returns tuple of 7 elements
+ 
+[0] Literal[]
+The output value that appears in the "Song directory" Dropdown component.
+ 
+[1] Literal[]
+The output value that appears in the "Song directory" Dropdown component.
+ 
+[2] Literal[]
+The output value that appears in the "Song directory" Dropdown component.
+ 
+[3] Literal[]
+The output value that appears in the "Song directory" Dropdown component.
+ 
+[4] Literal[]
+The output value that appears in the "Song directory" Dropdown component.
+ 
+[5] Literal[]
+The output value that appears in the "Source" Dropdown component.
+ 
+[6] Literal[]
+The output value that appears in the "Source" Dropdown component.
+api_name: /partial_11
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_11"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+ 
+list[Literal[]]
+The output value that appears in the "Song directories" Dropdown component.
+api_name: /partial_12
+copy
+from gradio_client import Client, handle_file
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		output_indices=["Step 1: audio"],
+		track=handle_file('https://github.com/gradio-app/gradio/raw/main/test/test_files/audio_sample.wav'),
+		api_name="/partial_12"
+)
+print(result)
+Accepts 2 parameters:
+ 
+output_indices list[Literal['Step 1: audio', 'Step 2: vocals', 'Step 3: vocals', 'Step 4: instrumentals', 'Step 4: backup vocals', 'Step 5: main vocals', 'Step 5: instrumentals', 'Step 5: backup vocals']] Default: ["Step 1: audio"]
+The input value that is provided in the "Song destination" Dropdown component.
+ 
+track filepath Required
+The input value that is provided in the "Song" Audio component. The FileData class is a subclass of the GradioModel class that represents a file object within a Gradio interface. It is used to store file data and metadata when a file is uploaded. Attributes: path: The server file path where the file is stored. url: The normalized server URL pointing to the file. size: The size of the file in bytes. orig_name: The original filename before upload. mime_type: The MIME type of the file. is_stream: Indicates whether the file is a stream. meta: Additional metadata used internally (should not be changed).
+Returns tuple of 8 elements
+ 
+[0] filepath
+The output value that appears in the "Audio" Audio component.
+ 
+[1] filepath
+The output value that appears in the "Vocals" Audio component.
+ 
+[2] filepath
+The output value that appears in the "Vocals" Audio component.
+ 
+[3] filepath
+The output value that appears in the "Instrumentals" Audio component.
+ 
+[4] filepath
+The output value that appears in the "Backup vocals" Audio component.
+ 
+[5] filepath
+The output value that appears in the "Main vocals" Audio component.
+ 
+[6] filepath
+The output value that appears in the "Instrumentals" Audio component.
+ 
+[7] filepath
+The output value that appears in the "Backup vocals" Audio component.
+api_name: /lambda_2
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/lambda_2"
+)
+print(result)
+Accepts 0 parameters:
+Returns tuple of 4 elements
+ 
+[0] Literal['UVR-MDX-NET-Voc_FT.onnx', 'UVR_MDXNET_KARA_2.onnx', 'Reverb_HQ_By_FoxJoy.onnx']
+The output value that appears in the "Separation model" Dropdown component.
+ 
+[1] Literal['64', '128', '256', '512', '1024', '2048']
+The output value that appears in the "Segment size" Radio component.
+ 
+[2] list[Literal['Step 1: audio', 'Step 2: vocals', 'Step 3: vocals', 'Step 4: instrumentals', 'Step 4: backup vocals', 'Step 5: main vocals', 'Step 5: instrumentals', 'Step 5: backup vocals']]
+The output value that appears in the "Primary stem destination" Dropdown component.
+ 
+[3] list[Literal['Step 1: audio', 'Step 2: vocals', 'Step 3: vocals', 'Step 4: instrumentals', 'Step 4: backup vocals', 'Step 5: main vocals', 'Step 5: instrumentals', 'Step 5: backup vocals']]
+The output value that appears in the "Secondary stem destination" Dropdown component.
+api_name: /_wrapped_fn
+copy
+from gradio_client import Client, handle_file
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		param_0=handle_file('https://github.com/gradio-app/gradio/raw/main/test/test_files/audio_sample.wav'),
+		param_1=None,
+		param_2="UVR-MDX-NET-Voc_FT.onnx",
+		param_3="512",
+		api_name="/_wrapped_fn"
+)
+print(result)
+Accepts 4 parameters:
+ 
+param_0 filepath Required
+The input value that is provided in the "Audio" Audio component. The FileData class is a subclass of the GradioModel class that represents a file object within a Gradio interface. It is used to store file data and metadata when a file is uploaded. Attributes: path: The server file path where the file is stored. url: The normalized server URL pointing to the file. size: The size of the file in bytes. orig_name: The original filename before upload. mime_type: The MIME type of the file. is_stream: Indicates whether the file is a stream. meta: Additional metadata used internally (should not be changed).
+ 
+param_1 Literal[] Required
+The input value that is provided in the "Song directory" Dropdown component.
+ 
+param_2 Literal['UVR-MDX-NET-Voc_FT.onnx', 'UVR_MDXNET_KARA_2.onnx', 'Reverb_HQ_By_FoxJoy.onnx'] Default: "UVR-MDX-NET-Voc_FT.onnx"
+The input value that is provided in the "Separation model" Dropdown component.
+ 
+param_3 Literal['64', '128', '256', '512', '1024', '2048'] Default: "512"
+The input value that is provided in the "Segment size" Radio component.
+Returns tuple of 2 elements
+ 
+[0] filepath
+The output value that appears in the "Primary stem" Audio component.
+ 
+[1] filepath
+The output value that appears in the "Secondary stem" Audio component.
+api_name: /partial_13
+copy
+from gradio_client import Client, handle_file
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		output_indices=["Step 2: vocals"],
+		track=handle_file('https://github.com/gradio-app/gradio/raw/main/test/test_files/audio_sample.wav'),
+		api_name="/partial_13"
+)
+print(result)
+Accepts 2 parameters:
+ 
+output_indices list[Literal['Step 1: audio', 'Step 2: vocals', 'Step 3: vocals', 'Step 4: instrumentals', 'Step 4: backup vocals', 'Step 5: main vocals', 'Step 5: instrumentals', 'Step 5: backup vocals']] Default: ["Step 2: vocals"]
+The input value that is provided in the "Primary stem destination" Dropdown component.
+ 
+track filepath Required
+The input value that is provided in the "Primary stem" Audio component. The FileData class is a subclass of the GradioModel class that represents a file object within a Gradio interface. It is used to store file data and metadata when a file is uploaded. Attributes: path: The server file path where the file is stored. url: The normalized server URL pointing to the file. size: The size of the file in bytes. orig_name: The original filename before upload. mime_type: The MIME type of the file. is_stream: Indicates whether the file is a stream. meta: Additional metadata used internally (should not be changed).
+Returns tuple of 8 elements
+ 
+[0] filepath
+The output value that appears in the "Audio" Audio component.
+ 
+[1] filepath
+The output value that appears in the "Vocals" Audio component.
+ 
+[2] filepath
+The output value that appears in the "Vocals" Audio component.
+ 
+[3] filepath
+The output value that appears in the "Instrumentals" Audio component.
+ 
+[4] filepath
+The output value that appears in the "Backup vocals" Audio component.
+ 
+[5] filepath
+The output value that appears in the "Main vocals" Audio component.
+ 
+[6] filepath
+The output value that appears in the "Instrumentals" Audio component.
+ 
+[7] filepath
+The output value that appears in the "Backup vocals" Audio component.
+api_name: /partial_14
+copy
+from gradio_client import Client, handle_file
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		output_indices=["Step 4: instrumentals"],
+		track=handle_file('https://github.com/gradio-app/gradio/raw/main/test/test_files/audio_sample.wav'),
+		api_name="/partial_14"
+)
+print(result)
+Accepts 2 parameters:
+ 
+output_indices list[Literal['Step 1: audio', 'Step 2: vocals', 'Step 3: vocals', 'Step 4: instrumentals', 'Step 4: backup vocals', 'Step 5: main vocals', 'Step 5: instrumentals', 'Step 5: backup vocals']] Default: ["Step 4: instrumentals"]
+The input value that is provided in the "Secondary stem destination" Dropdown component.
+ 
+track filepath Required
+The input value that is provided in the "Secondary stem" Audio component. The FileData class is a subclass of the GradioModel class that represents a file object within a Gradio interface. It is used to store file data and metadata when a file is uploaded. Attributes: path: The server file path where the file is stored. url: The normalized server URL pointing to the file. size: The size of the file in bytes. orig_name: The original filename before upload. mime_type: The MIME type of the file. is_stream: Indicates whether the file is a stream. meta: Additional metadata used internally (should not be changed).
+Returns tuple of 8 elements
+ 
+[0] filepath
+The output value that appears in the "Audio" Audio component.
+ 
+[1] filepath
+The output value that appears in the "Vocals" Audio component.
+ 
+[2] filepath
+The output value that appears in the "Vocals" Audio component.
+ 
+[3] filepath
+The output value that appears in the "Instrumentals" Audio component.
+ 
+[4] filepath
+The output value that appears in the "Backup vocals" Audio component.
+ 
+[5] filepath
+The output value that appears in the "Main vocals" Audio component.
+ 
+[6] filepath
+The output value that appears in the "Instrumentals" Audio component.
+ 
+[7] filepath
+The output value that appears in the "Backup vocals" Audio component.
+api_name: /partial_15
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		value=False,
+		api_name="/partial_15"
+)
+print(result)
+Accepts 1 parameter:
+ 
+value bool Default: False
+The input value that is provided in the "Autotune converted voice" Checkbox component.
+Returns 1 element
+ 
+float
+The output value that appears in the "Autotune intensity" Slider component.
+api_name: /partial_16
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		value=False,
+		api_name="/partial_16"
+)
+print(result)
+Accepts 1 parameter:
+ 
+value bool Default: False
+The input value that is provided in the "Clean converted voice" Checkbox component.
+Returns 1 element
+ 
+float
+The output value that appears in the "Cleaning intensity" Slider component.
+api_name: /partial_17
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		value="contentvec",
+		api_name="/partial_17"
+)
+print(result)
+Accepts 1 parameter:
+ 
+value Literal['contentvec', 'chinese-hubert-base', 'japanese-hubert-base', 'korean-hubert-base', 'custom'] Default: "contentvec"
+The input value that is provided in the "Embedder model" Dropdown component.
+Returns 1 element
+ 
+Literal[]
+The output value that appears in the "Custom embedder model" Dropdown component.
+api_name: /lambda_3
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/lambda_3"
+)
+print(result)
+Accepts 0 parameters:
+Returns tuple of 15 elements
+ 
+[0] float
+The output value that appears in the "Pitch shift (octaves)" Slider component.
+ 
+[1] float
+The output value that appears in the "Pitch shift (semi-tones)" Slider component.
+ 
+[2] list[Literal['rmvpe', 'crepe', 'crepe-tiny', 'fcpe']]
+The output value that appears in the "Pitch extraction algorithm(s)" Dropdown component.
+ 
+[3] float
+The output value that appears in the "Index rate" Slider component.
+ 
+[4] float
+The output value that appears in the "RMS mix rate" Slider component.
+ 
+[5] float
+The output value that appears in the "Protect rate" Slider component.
+ 
+[6] float
+The output value that appears in the "Hop length" Slider component.
+ 
+[7] bool
+The output value that appears in the "Split input voice" Checkbox component.
+ 
+[8] bool
+The output value that appears in the "Autotune converted voice" Checkbox component.
+ 
+[9] float
+The output value that appears in the "Autotune intensity" Slider component.
+ 
+[10] bool
+The output value that appears in the "Clean converted voice" Checkbox component.
+ 
+[11] float
+The output value that appears in the "Cleaning intensity" Slider component.
+ 
+[12] Literal['contentvec', 'chinese-hubert-base', 'japanese-hubert-base', 'korean-hubert-base', 'custom']
+The output value that appears in the "Embedder model" Dropdown component.
+ 
+[13] float
+The output value that appears in the "Speaker ID" Number component.
+ 
+[14] list[Literal['Step 1: audio', 'Step 2: vocals', 'Step 3: vocals', 'Step 4: instrumentals', 'Step 4: backup vocals', 'Step 5: main vocals', 'Step 5: instrumentals', 'Step 5: backup vocals']]
+The output value that appears in the "Converted vocals destination" Dropdown component.
+api_name: /partial_18
+copy
+from gradio_client import Client, handle_file
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		param_0=handle_file('https://github.com/gradio-app/gradio/raw/main/test/test_files/audio_sample.wav'),
+		param_1=None,
+		param_2=None,
+		param_3=0,
+		param_4=0,
+		param_5=["rmvpe"],
+		param_6=0.3,
+		param_7=1,
+		param_8=0.33,
+		param_9=128,
+		param_10=False,
+		param_11=False,
+		param_12=1,
+		param_13=False,
+		param_14=0.7,
+		param_15="contentvec",
+		param_16=None,
+		param_17=0,
+		api_name="/partial_18"
+)
+print(result)
+Accepts 18 parameters:
+ 
+param_0 filepath Required
+The input value that is provided in the "Vocals" Audio component. The FileData class is a subclass of the GradioModel class that represents a file object within a Gradio interface. It is used to store file data and metadata when a file is uploaded. Attributes: path: The server file path where the file is stored. url: The normalized server URL pointing to the file. size: The size of the file in bytes. orig_name: The original filename before upload. mime_type: The MIME type of the file. is_stream: Indicates whether the file is a stream. meta: Additional metadata used internally (should not be changed).
+ 
+param_1 Literal[] Required
+The input value that is provided in the "Song directory" Dropdown component.
+ 
+param_2 Literal[] Required
+The input value that is provided in the "Voice model" Dropdown component.
+ 
+param_3 float Default: 0
+The input value that is provided in the "Pitch shift (octaves)" Slider component.
+ 
+param_4 float Default: 0
+The input value that is provided in the "Pitch shift (semi-tones)" Slider component.
+ 
+param_5 list[Literal['rmvpe', 'crepe', 'crepe-tiny', 'fcpe']] Default: ["rmvpe"]
+The input value that is provided in the "Pitch extraction algorithm(s)" Dropdown component.
+ 
+param_6 float Default: 0.3
+The input value that is provided in the "Index rate" Slider component.
+ 
+param_7 float Default: 1
+The input value that is provided in the "RMS mix rate" Slider component.
+ 
+param_8 float Default: 0.33
+The input value that is provided in the "Protect rate" Slider component.
+ 
+param_9 float Default: 128
+The input value that is provided in the "Hop length" Slider component.
+ 
+param_10 bool Default: False
+The input value that is provided in the "Split input voice" Checkbox component.
+ 
+param_11 bool Default: False
+The input value that is provided in the "Autotune converted voice" Checkbox component.
+ 
+param_12 float Default: 1
+The input value that is provided in the "Autotune intensity" Slider component.
+ 
+param_13 bool Default: False
+The input value that is provided in the "Clean converted voice" Checkbox component.
+ 
+param_14 float Default: 0.7
+The input value that is provided in the "Cleaning intensity" Slider component.
+ 
+param_15 Literal['contentvec', 'chinese-hubert-base', 'japanese-hubert-base', 'korean-hubert-base', 'custom'] Default: "contentvec"
+The input value that is provided in the "Embedder model" Dropdown component.
+ 
+param_16 Literal[] Required
+The input value that is provided in the "Custom embedder model" Dropdown component.
+ 
+param_17 float Default: 0
+The input value that is provided in the "Speaker ID" Number component.
+Returns 1 element
+ 
+filepath
+The output value that appears in the "Converted vocals" Audio component.
+api_name: /partial_19
+copy
+from gradio_client import Client, handle_file
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		output_indices=["Step 3: vocals"],
+		track=handle_file('https://github.com/gradio-app/gradio/raw/main/test/test_files/audio_sample.wav'),
+		api_name="/partial_19"
+)
+print(result)
+Accepts 2 parameters:
+ 
+output_indices list[Literal['Step 1: audio', 'Step 2: vocals', 'Step 3: vocals', 'Step 4: instrumentals', 'Step 4: backup vocals', 'Step 5: main vocals', 'Step 5: instrumentals', 'Step 5: backup vocals']] Default: ["Step 3: vocals"]
+The input value that is provided in the "Converted vocals destination" Dropdown component.
+ 
+track filepath Required
+The input value that is provided in the "Converted vocals" Audio component. The FileData class is a subclass of the GradioModel class that represents a file object within a Gradio interface. It is used to store file data and metadata when a file is uploaded. Attributes: path: The server file path where the file is stored. url: The normalized server URL pointing to the file. size: The size of the file in bytes. orig_name: The original filename before upload. mime_type: The MIME type of the file. is_stream: Indicates whether the file is a stream. meta: Additional metadata used internally (should not be changed).
+Returns tuple of 8 elements
+ 
+[0] filepath
+The output value that appears in the "Audio" Audio component.
+ 
+[1] filepath
+The output value that appears in the "Vocals" Audio component.
+ 
+[2] filepath
+The output value that appears in the "Vocals" Audio component.
+ 
+[3] filepath
+The output value that appears in the "Instrumentals" Audio component.
+ 
+[4] filepath
+The output value that appears in the "Backup vocals" Audio component.
+ 
+[5] filepath
+The output value that appears in the "Main vocals" Audio component.
+ 
+[6] filepath
+The output value that appears in the "Instrumentals" Audio component.
+ 
+[7] filepath
+The output value that appears in the "Backup vocals" Audio component.
+api_name: /lambda_4
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/lambda_4"
+)
+print(result)
+Accepts 0 parameters:
+Returns tuple of 5 elements
+ 
+[0] float
+The output value that appears in the "Room size" Slider component.
+ 
+[1] float
+The output value that appears in the "Wetness level" Slider component.
+ 
+[2] float
+The output value that appears in the "Dryness level" Slider component.
+ 
+[3] float
+The output value that appears in the "Damping level" Slider component.
+ 
+[4] list[Literal['Step 1: audio', 'Step 2: vocals', 'Step 3: vocals', 'Step 4: instrumentals', 'Step 4: backup vocals', 'Step 5: main vocals', 'Step 5: instrumentals', 'Step 5: backup vocals']]
+The output value that appears in the "Effected vocals destination" Dropdown component.
+api_name: /_wrapped_fn_1
+copy
+from gradio_client import Client, handle_file
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		param_0=handle_file('https://github.com/gradio-app/gradio/raw/main/test/test_files/audio_sample.wav'),
+		param_1=None,
+		param_2=0.15,
+		param_3=0.2,
+		param_4=0.8,
+		param_5=0.7,
+		api_name="/_wrapped_fn_1"
+)
+print(result)
+Accepts 6 parameters:
+ 
+param_0 filepath Required
+The input value that is provided in the "Vocals" Audio component. The FileData class is a subclass of the GradioModel class that represents a file object within a Gradio interface. It is used to store file data and metadata when a file is uploaded. Attributes: path: The server file path where the file is stored. url: The normalized server URL pointing to the file. size: The size of the file in bytes. orig_name: The original filename before upload. mime_type: The MIME type of the file. is_stream: Indicates whether the file is a stream. meta: Additional metadata used internally (should not be changed).
+ 
+param_1 Literal[] Required
+The input value that is provided in the "Song directory" Dropdown component.
+ 
+param_2 float Default: 0.15
+The input value that is provided in the "Room size" Slider component.
+ 
+param_3 float Default: 0.2
+The input value that is provided in the "Wetness level" Slider component.
+ 
+param_4 float Default: 0.8
+The input value that is provided in the "Dryness level" Slider component.
+ 
+param_5 float Default: 0.7
+The input value that is provided in the "Damping level" Slider component.
+Returns 1 element
+ 
+filepath
+The output value that appears in the "Effected vocals" Audio component.
+api_name: /partial_20
+copy
+from gradio_client import Client, handle_file
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		output_indices=["Step 5: main vocals"],
+		track=handle_file('https://github.com/gradio-app/gradio/raw/main/test/test_files/audio_sample.wav'),
+		api_name="/partial_20"
+)
+print(result)
+Accepts 2 parameters:
+ 
+output_indices list[Literal['Step 1: audio', 'Step 2: vocals', 'Step 3: vocals', 'Step 4: instrumentals', 'Step 4: backup vocals', 'Step 5: main vocals', 'Step 5: instrumentals', 'Step 5: backup vocals']] Default: ["Step 5: main vocals"]
+The input value that is provided in the "Effected vocals destination" Dropdown component.
+ 
+track filepath Required
+The input value that is provided in the "Effected vocals" Audio component. The FileData class is a subclass of the GradioModel class that represents a file object within a Gradio interface. It is used to store file data and metadata when a file is uploaded. Attributes: path: The server file path where the file is stored. url: The normalized server URL pointing to the file. size: The size of the file in bytes. orig_name: The original filename before upload. mime_type: The MIME type of the file. is_stream: Indicates whether the file is a stream. meta: Additional metadata used internally (should not be changed).
+Returns tuple of 8 elements
+ 
+[0] filepath
+The output value that appears in the "Audio" Audio component.
+ 
+[1] filepath
+The output value that appears in the "Vocals" Audio component.
+ 
+[2] filepath
+The output value that appears in the "Vocals" Audio component.
+ 
+[3] filepath
+The output value that appears in the "Instrumentals" Audio component.
+ 
+[4] filepath
+The output value that appears in the "Backup vocals" Audio component.
+ 
+[5] filepath
+The output value that appears in the "Main vocals" Audio component.
+ 
+[6] filepath
+The output value that appears in the "Instrumentals" Audio component.
+ 
+[7] filepath
+The output value that appears in the "Backup vocals" Audio component.
+api_name: /lambda_5
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/lambda_5"
+)
+print(result)
+Accepts 0 parameters:
+Returns tuple of 4 elements
+ 
+[0] float
+The output value that appears in the "Instrumental pitch shift" Slider component.
+ 
+[1] float
+The output value that appears in the "Backup vocal pitch shift" Slider component.
+ 
+[2] list[Literal['Step 1: audio', 'Step 2: vocals', 'Step 3: vocals', 'Step 4: instrumentals', 'Step 4: backup vocals', 'Step 5: main vocals', 'Step 5: instrumentals', 'Step 5: backup vocals']]
+The output value that appears in the "Pitch-shifted instrumentals destination" Dropdown component.
+ 
+[3] list[Literal['Step 1: audio', 'Step 2: vocals', 'Step 3: vocals', 'Step 4: instrumentals', 'Step 4: backup vocals', 'Step 5: main vocals', 'Step 5: instrumentals', 'Step 5: backup vocals']]
+The output value that appears in the "Pitch-shifted backup vocals destination" Dropdown component.
+api_name: /_wrapped_fn_2
+copy
+from gradio_client import Client, handle_file
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		param_0=handle_file('https://github.com/gradio-app/gradio/raw/main/test/test_files/audio_sample.wav'),
+		param_1=None,
+		param_2=0,
+		api_name="/_wrapped_fn_2"
+)
+print(result)
+Accepts 3 parameters:
+ 
+param_0 filepath Required
+The input value that is provided in the "Instrumentals" Audio component. The FileData class is a subclass of the GradioModel class that represents a file object within a Gradio interface. It is used to store file data and metadata when a file is uploaded. Attributes: path: The server file path where the file is stored. url: The normalized server URL pointing to the file. size: The size of the file in bytes. orig_name: The original filename before upload. mime_type: The MIME type of the file. is_stream: Indicates whether the file is a stream. meta: Additional metadata used internally (should not be changed).
+ 
+param_1 Literal[] Required
+The input value that is provided in the "Song directory" Dropdown component.
+ 
+param_2 float Default: 0
+The input value that is provided in the "Instrumental pitch shift" Slider component.
+Returns 1 element
+ 
+filepath
+The output value that appears in the "Pitch-shifted instrumentals" Audio component.
+api_name: /_wrapped_fn_3
+copy
+from gradio_client import Client, handle_file
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		param_0=handle_file('https://github.com/gradio-app/gradio/raw/main/test/test_files/audio_sample.wav'),
+		param_1=None,
+		param_2=0,
+		api_name="/_wrapped_fn_3"
+)
+print(result)
+Accepts 3 parameters:
+ 
+param_0 filepath Required
+The input value that is provided in the "Backup vocals" Audio component. The FileData class is a subclass of the GradioModel class that represents a file object within a Gradio interface. It is used to store file data and metadata when a file is uploaded. Attributes: path: The server file path where the file is stored. url: The normalized server URL pointing to the file. size: The size of the file in bytes. orig_name: The original filename before upload. mime_type: The MIME type of the file. is_stream: Indicates whether the file is a stream. meta: Additional metadata used internally (should not be changed).
+ 
+param_1 Literal[] Required
+The input value that is provided in the "Song directory" Dropdown component.
+ 
+param_2 float Default: 0
+The input value that is provided in the "Backup vocal pitch shift" Slider component.
+Returns 1 element
+ 
+filepath
+The output value that appears in the "Pitch-shifted backup vocals" Audio component.
+api_name: /partial_21
+copy
+from gradio_client import Client, handle_file
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		output_indices=["Step 5: instrumentals"],
+		track=handle_file('https://github.com/gradio-app/gradio/raw/main/test/test_files/audio_sample.wav'),
+		api_name="/partial_21"
+)
+print(result)
+Accepts 2 parameters:
+ 
+output_indices list[Literal['Step 1: audio', 'Step 2: vocals', 'Step 3: vocals', 'Step 4: instrumentals', 'Step 4: backup vocals', 'Step 5: main vocals', 'Step 5: instrumentals', 'Step 5: backup vocals']] Default: ["Step 5: instrumentals"]
+The input value that is provided in the "Pitch-shifted instrumentals destination" Dropdown component.
+ 
+track filepath Required
+The input value that is provided in the "Pitch-shifted instrumentals" Audio component. The FileData class is a subclass of the GradioModel class that represents a file object within a Gradio interface. It is used to store file data and metadata when a file is uploaded. Attributes: path: The server file path where the file is stored. url: The normalized server URL pointing to the file. size: The size of the file in bytes. orig_name: The original filename before upload. mime_type: The MIME type of the file. is_stream: Indicates whether the file is a stream. meta: Additional metadata used internally (should not be changed).
+Returns tuple of 8 elements
+ 
+[0] filepath
+The output value that appears in the "Audio" Audio component.
+ 
+[1] filepath
+The output value that appears in the "Vocals" Audio component.
+ 
+[2] filepath
+The output value that appears in the "Vocals" Audio component.
+ 
+[3] filepath
+The output value that appears in the "Instrumentals" Audio component.
+ 
+[4] filepath
+The output value that appears in the "Backup vocals" Audio component.
+ 
+[5] filepath
+The output value that appears in the "Main vocals" Audio component.
+ 
+[6] filepath
+The output value that appears in the "Instrumentals" Audio component.
+ 
+[7] filepath
+The output value that appears in the "Backup vocals" Audio component.
+api_name: /partial_22
+copy
+from gradio_client import Client, handle_file
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		output_indices=["Step 5: backup vocals"],
+		track=handle_file('https://github.com/gradio-app/gradio/raw/main/test/test_files/audio_sample.wav'),
+		api_name="/partial_22"
+)
+print(result)
+Accepts 2 parameters:
+ 
+output_indices list[Literal['Step 1: audio', 'Step 2: vocals', 'Step 3: vocals', 'Step 4: instrumentals', 'Step 4: backup vocals', 'Step 5: main vocals', 'Step 5: instrumentals', 'Step 5: backup vocals']] Default: ["Step 5: backup vocals"]
+The input value that is provided in the "Pitch-shifted backup vocals destination" Dropdown component.
+ 
+track filepath Required
+The input value that is provided in the "Pitch-shifted backup vocals" Audio component. The FileData class is a subclass of the GradioModel class that represents a file object within a Gradio interface. It is used to store file data and metadata when a file is uploaded. Attributes: path: The server file path where the file is stored. url: The normalized server URL pointing to the file. size: The size of the file in bytes. orig_name: The original filename before upload. mime_type: The MIME type of the file. is_stream: Indicates whether the file is a stream. meta: Additional metadata used internally (should not be changed).
+Returns tuple of 8 elements
+ 
+[0] filepath
+The output value that appears in the "Audio" Audio component.
+ 
+[1] filepath
+The output value that appears in the "Vocals" Audio component.
+ 
+[2] filepath
+The output value that appears in the "Vocals" Audio component.
+ 
+[3] filepath
+The output value that appears in the "Instrumentals" Audio component.
+ 
+[4] filepath
+The output value that appears in the "Backup vocals" Audio component.
+ 
+[5] filepath
+The output value that appears in the "Main vocals" Audio component.
+ 
+[6] filepath
+The output value that appears in the "Instrumentals" Audio component.
+ 
+[7] filepath
+The output value that appears in the "Backup vocals" Audio component.
+api_name: /lambda_6
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/lambda_6"
+)
+print(result)
+Accepts 0 parameters:
+Returns tuple of 6 elements
+ 
+[0] float
+The output value that appears in the "Main gain" Slider component.
+ 
+[1] float
+The output value that appears in the "Instrumentals gain" Slider component.
+ 
+[2] float
+The output value that appears in the "Backup gain" Slider component.
+ 
+[3] Literal['16000', '44100', '48000', '96000', '192000']
+The output value that appears in the "Output sample rate" Dropdown component.
+ 
+[4] Literal['mp3', 'wav', 'flac', 'ogg', 'm4a', 'aac']
+The output value that appears in the "Output format" Dropdown component.
+ 
+[5] list[Literal['Step 1: audio', 'Step 2: vocals', 'Step 3: vocals', 'Step 4: instrumentals', 'Step 4: backup vocals', 'Step 5: main vocals', 'Step 5: instrumentals', 'Step 5: backup vocals']]
+The output value that appears in the "Song cover destination" Dropdown component.
+api_name: /partial_23
+copy
+from gradio_client import Client, handle_file
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		data=handle_file('https://github.com/gradio-app/gradio/raw/main/test/test_files/audio_sample.wav'),
+		param_1=handle_file('https://github.com/gradio-app/gradio/raw/main/test/test_files/audio_sample.wav'),
+		param_2=handle_file('https://github.com/gradio-app/gradio/raw/main/test/test_files/audio_sample.wav'),
+		param_3=0,
+		param_4=0,
+		param_5=0,
+		api_name="/partial_23"
+)
+print(result)
+Accepts 6 parameters:
+ 
+data filepath Required
+The input value that is provided in the "Main vocals" Audio component. The FileData class is a subclass of the GradioModel class that represents a file object within a Gradio interface. It is used to store file data and metadata when a file is uploaded. Attributes: path: The server file path where the file is stored. url: The normalized server URL pointing to the file. size: The size of the file in bytes. orig_name: The original filename before upload. mime_type: The MIME type of the file. is_stream: Indicates whether the file is a stream. meta: Additional metadata used internally (should not be changed).
+ 
+param_1 filepath Required
+The input value that is provided in the "Instrumentals" Audio component. The FileData class is a subclass of the GradioModel class that represents a file object within a Gradio interface. It is used to store file data and metadata when a file is uploaded. Attributes: path: The server file path where the file is stored. url: The normalized server URL pointing to the file. size: The size of the file in bytes. orig_name: The original filename before upload. mime_type: The MIME type of the file. is_stream: Indicates whether the file is a stream. meta: Additional metadata used internally (should not be changed).
+ 
+param_2 filepath Required
+The input value that is provided in the "Backup vocals" Audio component. The FileData class is a subclass of the GradioModel class that represents a file object within a Gradio interface. It is used to store file data and metadata when a file is uploaded. Attributes: path: The server file path where the file is stored. url: The normalized server URL pointing to the file. size: The size of the file in bytes. orig_name: The original filename before upload. mime_type: The MIME type of the file. is_stream: Indicates whether the file is a stream. meta: Additional metadata used internally (should not be changed).
+ 
+param_3 float Default: 0
+The input value that is provided in the "Main gain" Slider component.
+ 
+param_4 float Default: 0
+The input value that is provided in the "Instrumentals gain" Slider component.
+ 
+param_5 float Default: 0
+The input value that is provided in the "Backup gain" Slider component.
+Returns 1 element
+api_name: /_wrapped_fn_4
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		param_1=None,
+		param_2="44100",
+		param_3="mp3",
+		param_4="Hello!!",
+		api_name="/_wrapped_fn_4"
+)
+print(result)
+Accepts 4 parameters:
+ 
+param_1 Literal[] Required
+The input value that is provided in the "Song directory" Dropdown component.
+ 
+param_2 Literal['16000', '44100', '48000', '96000', '192000'] Default: "44100"
+The input value that is provided in the "Output sample rate" Dropdown component.
+ 
+param_3 Literal['mp3', 'wav', 'flac', 'ogg', 'm4a', 'aac'] Default: "mp3"
+The input value that is provided in the "Output format" Dropdown component.
+ 
+param_4 str Required
+The input value that is provided in the "Output name" Textbox component.
+Returns 1 element
+ 
+filepath
+The output value that appears in the "Song cover" Audio component.
+api_name: /partial_24
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_24"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+ 
+list[Literal[]]
+The output value that appears in the "Output audio files" Dropdown component.
+api_name: /partial_25
+copy
+from gradio_client import Client, handle_file
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		output_indices=[],
+		track=handle_file('https://github.com/gradio-app/gradio/raw/main/test/test_files/audio_sample.wav'),
+		api_name="/partial_25"
+)
+print(result)
+Accepts 2 parameters:
+ 
+output_indices list[Literal['Step 1: audio', 'Step 2: vocals', 'Step 3: vocals', 'Step 4: instrumentals', 'Step 4: backup vocals', 'Step 5: main vocals', 'Step 5: instrumentals', 'Step 5: backup vocals']] Default: []
+The input value that is provided in the "Song cover destination" Dropdown component.
+ 
+track filepath Required
+The input value that is provided in the "Song cover" Audio component. The FileData class is a subclass of the GradioModel class that represents a file object within a Gradio interface. It is used to store file data and metadata when a file is uploaded. Attributes: path: The server file path where the file is stored. url: The normalized server URL pointing to the file. size: The size of the file in bytes. orig_name: The original filename before upload. mime_type: The MIME type of the file. is_stream: Indicates whether the file is a stream. meta: Additional metadata used internally (should not be changed).
+Returns tuple of 8 elements
+ 
+[0] filepath
+The output value that appears in the "Audio" Audio component.
+ 
+[1] filepath
+The output value that appears in the "Vocals" Audio component.
+ 
+[2] filepath
+The output value that appears in the "Vocals" Audio component.
+ 
+[3] filepath
+The output value that appears in the "Instrumentals" Audio component.
+ 
+[4] filepath
+The output value that appears in the "Backup vocals" Audio component.
+ 
+[5] filepath
+The output value that appears in the "Main vocals" Audio component.
+ 
+[6] filepath
+The output value that appears in the "Instrumentals" Audio component.
+ 
+[7] filepath
+The output value that appears in the "Backup vocals" Audio component.
+api_name: /partial_26
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		visible_index="Text",
+		api_name="/partial_26"
+)
+print(result)
+Accepts 1 parameter:
+ 
+visible_index Literal['Text', 'Local file'] Default: "Text"
+The input value that is provided in the "Source type" Dropdown component.
+Returns tuple of 2 elements
+ 
+[0] str
+The output value that appears in the "Source" Textbox component.
+ 
+[1] filepath
+The output value that appears in the "Source" File component.
+api_name: /update_value_4
+copy
+from gradio_client import Client, handle_file
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		x=handle_file('https://github.com/gradio-app/gradio/raw/main/test/test_files/sample_file.pdf'),
+		api_name="/update_value_4"
+)
+print(result)
+Accepts 1 parameter:
+ 
+x filepath Required
+The input value that is provided in the "Source" File component. The FileData class is a subclass of the GradioModel class that represents a file object within a Gradio interface. It is used to store file data and metadata when a file is uploaded. Attributes: path: The server file path where the file is stored. url: The normalized server URL pointing to the file. size: The size of the file in bytes. orig_name: The original filename before upload. mime_type: The MIME type of the file. is_stream: Indicates whether the file is a stream. meta: Additional metadata used internally (should not be changed).
+Returns 1 element
+ 
+str
+The output value that appears in the "Source" Textbox component.
+api_name: /partial_27
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		value=False,
+		api_name="/partial_27"
+)
+print(result)
+Accepts 1 parameter:
+ 
+value bool Default: False
+The input value that is provided in the "Autotune converted voice" Checkbox component.
+Returns 1 element
+ 
+float
+The output value that appears in the "Autotune intensity" Slider component.
+api_name: /partial_28
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		value=True,
+		api_name="/partial_28"
+)
+print(result)
+Accepts 1 parameter:
+ 
+value bool Default: True
+The input value that is provided in the "Clean converted voice" Checkbox component.
+Returns 1 element
+ 
+float
+The output value that appears in the "Cleaning intensity" Slider component.
+api_name: /partial_29
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		value="contentvec",
+		api_name="/partial_29"
+)
+print(result)
+Accepts 1 parameter:
+ 
+value Literal['contentvec', 'chinese-hubert-base', 'japanese-hubert-base', 'korean-hubert-base', 'custom'] Default: "contentvec"
+The input value that is provided in the "Embedder model" Dropdown component.
+Returns 1 element
+ 
+Literal[]
+The output value that appears in the "Custom embedder model" Dropdown component.
+api_name: /partial_30
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		visible=False,
+		api_name="/partial_30"
+)
+print(result)
+Accepts 1 parameter:
+ 
+visible bool Default: False
+The input value that is provided in the "Show intermediate audio" Checkbox component.
+Returns 1 element
+api_name: /partial_31
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		param_0="Hello!!",
+		param_1=None,
+		param_2=None,
+		param_3=0,
+		param_4=0,
+		param_5=0,
+		param_6=0,
+		param_7=0,
+		param_8=["rmvpe"],
+		param_9=0.3,
+		param_10=1,
+		param_11=0.33,
+		param_12=128,
+		param_13=False,
+		param_14=False,
+		param_15=1,
+		param_16=True,
+		param_17=0.7,
+		param_18="contentvec",
+		param_19=None,
+		param_20=0,
+		param_21=0,
+		param_22="44100",
+		param_23="mp3",
+		param_24="Hello!!",
+		api_name="/partial_31"
+)
+print(result)
+Accepts 25 parameters:
+ 
+param_0 str Required
+The input value that is provided in the "Source" Textbox component.
+ 
+param_1 Literal[] Required
+The input value that is provided in the "Voice model" Dropdown component.
+ 
+param_2 Literal[] Required
+The input value that is provided in the "Edge TTS voice" Dropdown component.
+ 
+param_3 float Default: 0
+The input value that is provided in the "Edge TTS pitch shift" Slider component.
+ 
+param_4 float Default: 0
+The input value that is provided in the "TTS speed change" Slider component.
+ 
+param_5 float Default: 0
+The input value that is provided in the "TTS volume change" Slider component.
+ 
+param_6 float Default: 0
+The input value that is provided in the "Octave shift" Slider component.
+ 
+param_7 float Default: 0
+The input value that is provided in the "Semitone shift" Slider component.
+ 
+param_8 list[Literal['rmvpe', 'crepe', 'crepe-tiny', 'fcpe']] Default: ["rmvpe"]
+The input value that is provided in the "Pitch extraction algorithm(s)" Dropdown component.
+ 
+param_9 float Default: 0.3
+The input value that is provided in the "Index rate" Slider component.
+ 
+param_10 float Default: 1
+The input value that is provided in the "RMS mix rate" Slider component.
+ 
+param_11 float Default: 0.33
+The input value that is provided in the "Protect rate" Slider component.
+ 
+param_12 float Default: 128
+The input value that is provided in the "Hop length" Slider component.
+ 
+param_13 bool Default: False
+The input value that is provided in the "Split input voice" Checkbox component.
+ 
+param_14 bool Default: False
+The input value that is provided in the "Autotune converted voice" Checkbox component.
+ 
+param_15 float Default: 1
+The input value that is provided in the "Autotune intensity" Slider component.
+ 
+param_16 bool Default: True
+The input value that is provided in the "Clean converted voice" Checkbox component.
+ 
+param_17 float Default: 0.7
+The input value that is provided in the "Cleaning intensity" Slider component.
+ 
+param_18 Literal['contentvec', 'chinese-hubert-base', 'japanese-hubert-base', 'korean-hubert-base', 'custom'] Default: "contentvec"
+The input value that is provided in the "Embedder model" Dropdown component.
+ 
+param_19 Literal[] Required
+The input value that is provided in the "Custom embedder model" Dropdown component.
+ 
+param_20 float Default: 0
+The input value that is provided in the "Speaker ID" Number component.
+ 
+param_21 float Default: 0
+The input value that is provided in the "Output gain" Slider component.
+ 
+param_22 Literal['16000', '44100', '48000', '96000', '192000'] Default: "44100"
+The input value that is provided in the "Output sample rate" Dropdown component.
+ 
+param_23 Literal['mp3', 'wav', 'flac', 'ogg', 'm4a', 'aac'] Default: "mp3"
+The input value that is provided in the "Output format" Dropdown component.
+ 
+param_24 str Required
+The input value that is provided in the "Output name" Textbox component.
+Returns tuple of 3 elements
+ 
+[0] filepath
+The output value that appears in the "Mixed speech" Audio component.
+ 
+[1] filepath
+The output value that appears in the "Speech" Audio component.
+ 
+[2] filepath
+The output value that appears in the "Converted speech" Audio component.
+api_name: /partial_32
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_32"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+ 
+list[Literal[]]
+The output value that appears in the "Speech audio files" Dropdown component.
+api_name: /partial_33
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_33"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+ 
+list[Literal[]]
+The output value that appears in the "Output audio files" Dropdown component.
+api_name: /lambda_7
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/lambda_7"
+)
+print(result)
+Accepts 0 parameters:
+Returns tuple of 21 elements
+ 
+[0] float
+The output value that appears in the "Edge TTS pitch shift" Slider component.
+ 
+[1] float
+The output value that appears in the "TTS speed change" Slider component.
+ 
+[2] float
+The output value that appears in the "TTS volume change" Slider component.
+ 
+[3] float
+The output value that appears in the "Octave shift" Slider component.
+ 
+[4] float
+The output value that appears in the "Semitone shift" Slider component.
+ 
+[5] list[Literal['rmvpe', 'crepe', 'crepe-tiny', 'fcpe']]
+The output value that appears in the "Pitch extraction algorithm(s)" Dropdown component.
+ 
+[6] float
+The output value that appears in the "Index rate" Slider component.
+ 
+[7] float
+The output value that appears in the "RMS mix rate" Slider component.
+ 
+[8] float
+The output value that appears in the "Protect rate" Slider component.
+ 
+[9] float
+The output value that appears in the "Hop length" Slider component.
+ 
+[10] bool
+The output value that appears in the "Split input voice" Checkbox component.
+ 
+[11] bool
+The output value that appears in the "Autotune converted voice" Checkbox component.
+ 
+[12] float
+The output value that appears in the "Autotune intensity" Slider component.
+ 
+[13] bool
+The output value that appears in the "Clean converted voice" Checkbox component.
+ 
+[14] float
+The output value that appears in the "Cleaning intensity" Slider component.
+ 
+[15] Literal['contentvec', 'chinese-hubert-base', 'japanese-hubert-base', 'korean-hubert-base', 'custom']
+The output value that appears in the "Embedder model" Dropdown component.
+ 
+[16] float
+The output value that appears in the "Speaker ID" Number component.
+ 
+[17] float
+The output value that appears in the "Output gain" Slider component.
+ 
+[18] Literal['16000', '44100', '48000', '96000', '192000']
+The output value that appears in the "Output sample rate" Dropdown component.
+ 
+[19] Literal['mp3', 'wav', 'flac', 'ogg', 'm4a', 'aac']
+The output value that appears in the "Output format" Dropdown component.
+ 
+[20] bool
+The output value that appears in the "Show intermediate audio" Checkbox component.
+api_name: /partial_34
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		visible_index="Text",
+		api_name="/partial_34"
+)
+print(result)
+Accepts 1 parameter:
+ 
+visible_index Literal['Text', 'Local file'] Default: "Text"
+The input value that is provided in the "Source type" Dropdown component.
+Returns tuple of 2 elements
+ 
+[0] str
+The output value that appears in the "Source" Textbox component.
+ 
+[1] filepath
+The output value that appears in the "Source" File component.
+api_name: /update_value_5
+copy
+from gradio_client import Client, handle_file
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		x=handle_file('https://github.com/gradio-app/gradio/raw/main/test/test_files/sample_file.pdf'),
+		api_name="/update_value_5"
+)
+print(result)
+Accepts 1 parameter:
+ 
+x filepath Required
+The input value that is provided in the "Source" File component. The FileData class is a subclass of the GradioModel class that represents a file object within a Gradio interface. It is used to store file data and metadata when a file is uploaded. Attributes: path: The server file path where the file is stored. url: The normalized server URL pointing to the file. size: The size of the file in bytes. orig_name: The original filename before upload. mime_type: The MIME type of the file. is_stream: Indicates whether the file is a stream. meta: Additional metadata used internally (should not be changed).
+Returns 1 element
+ 
+str
+The output value that appears in the "Source" Textbox component.
+api_name: /lambda_8
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/lambda_8"
+)
+print(result)
+Accepts 0 parameters:
+Returns tuple of 4 elements
+ 
+[0] float
+The output value that appears in the "Edge TTS pitch shift" Slider component.
+ 
+[1] float
+The output value that appears in the "TTS speed change" Slider component.
+ 
+[2] float
+The output value that appears in the "TTS volume change" Slider component.
+ 
+[3] list[Literal['Step 2: speech', 'Step 3: speech']]
+The output value that appears in the "Speech destination" Dropdown component.
+api_name: /_wrapped_fn_5
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		param_0="Hello!!",
+		param_1=None,
+		param_2=0,
+		param_3=0,
+		param_4=0,
+		api_name="/_wrapped_fn_5"
+)
+print(result)
+Accepts 5 parameters:
+ 
+param_0 str Required
+The input value that is provided in the "Source" Textbox component.
+ 
+param_1 Literal[] Required
+The input value that is provided in the "Edge TTS voice" Dropdown component.
+ 
+param_2 float Default: 0
+The input value that is provided in the "Edge TTS pitch shift" Slider component.
+ 
+param_3 float Default: 0
+The input value that is provided in the "TTS speed change" Slider component.
+ 
+param_4 float Default: 0
+The input value that is provided in the "TTS volume change" Slider component.
+Returns 1 element
+ 
+filepath
+The output value that appears in the "Generated speech" Audio component.
+api_name: /partial_35
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_35"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+ 
+list[Literal[]]
+The output value that appears in the "Speech audio files" Dropdown component.
+api_name: /partial_36
+copy
+from gradio_client import Client, handle_file
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		output_indices=["Step 2: speech"],
+		track=handle_file('https://github.com/gradio-app/gradio/raw/main/test/test_files/audio_sample.wav'),
+		api_name="/partial_36"
+)
+print(result)
+Accepts 2 parameters:
+ 
+output_indices list[Literal['Step 2: speech', 'Step 3: speech']] Default: ["Step 2: speech"]
+The input value that is provided in the "Speech destination" Dropdown component.
+ 
+track filepath Required
+The input value that is provided in the "Generated speech" Audio component. The FileData class is a subclass of the GradioModel class that represents a file object within a Gradio interface. It is used to store file data and metadata when a file is uploaded. Attributes: path: The server file path where the file is stored. url: The normalized server URL pointing to the file. size: The size of the file in bytes. orig_name: The original filename before upload. mime_type: The MIME type of the file. is_stream: Indicates whether the file is a stream. meta: Additional metadata used internally (should not be changed).
+Returns tuple of 2 elements
+ 
+[0] filepath
+The output value that appears in the "Speech" Audio component.
+ 
+[1] filepath
+The output value that appears in the "Converted speech" Audio component.
+api_name: /partial_37
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		value=False,
+		api_name="/partial_37"
+)
+print(result)
+Accepts 1 parameter:
+ 
+value bool Default: False
+The input value that is provided in the "Autotune converted voice" Checkbox component.
+Returns 1 element
+ 
+float
+The output value that appears in the "Autotune intensity" Slider component.
+api_name: /partial_38
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		value=True,
+		api_name="/partial_38"
+)
+print(result)
+Accepts 1 parameter:
+ 
+value bool Default: True
+The input value that is provided in the "Clean converted voice" Checkbox component.
+Returns 1 element
+ 
+float
+The output value that appears in the "Cleaning intensity" Slider component.
+api_name: /partial_39
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		value="contentvec",
+		api_name="/partial_39"
+)
+print(result)
+Accepts 1 parameter:
+ 
+value Literal['contentvec', 'chinese-hubert-base', 'japanese-hubert-base', 'korean-hubert-base', 'custom'] Default: "contentvec"
+The input value that is provided in the "Embedder model" Dropdown component.
+Returns 1 element
+ 
+Literal[]
+The output value that appears in the "Custom embedder model" Dropdown component.
+api_name: /lambda_9
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/lambda_9"
+)
+print(result)
+Accepts 0 parameters:
+Returns tuple of 15 elements
+ 
+[0] float
+The output value that appears in the "Octave shift" Slider component.
+ 
+[1] float
+The output value that appears in the "Semitone shift" Slider component.
+ 
+[2] list[Literal['rmvpe', 'crepe', 'crepe-tiny', 'fcpe']]
+The output value that appears in the "Pitch extraction algorithm(s)" Dropdown component.
+ 
+[3] float
+The output value that appears in the "Index rate" Slider component.
+ 
+[4] float
+The output value that appears in the "RMS mix rate" Slider component.
+ 
+[5] float
+The output value that appears in the "Protect rate" Slider component.
+ 
+[6] float
+The output value that appears in the "Hop length" Slider component.
+ 
+[7] bool
+The output value that appears in the "Split input voice" Checkbox component.
+ 
+[8] bool
+The output value that appears in the "Autotune converted voice" Checkbox component.
+ 
+[9] float
+The output value that appears in the "Autotune intensity" Slider component.
+ 
+[10] bool
+The output value that appears in the "Clean converted voice" Checkbox component.
+ 
+[11] float
+The output value that appears in the "Cleaning intensity" Slider component.
+ 
+[12] Literal['contentvec', 'chinese-hubert-base', 'japanese-hubert-base', 'korean-hubert-base', 'custom']
+The output value that appears in the "Embedder model" Dropdown component.
+ 
+[13] float
+The output value that appears in the "Speaker ID" Number component.
+ 
+[14] list[Literal['Step 2: speech', 'Step 3: speech']]
+The output value that appears in the "Converted speech destination" Dropdown component.
+api_name: /partial_40
+copy
+from gradio_client import Client, handle_file
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		param_0=handle_file('https://github.com/gradio-app/gradio/raw/main/test/test_files/audio_sample.wav'),
+		param_2=None,
+		param_3=0,
+		param_4=0,
+		param_5=["rmvpe"],
+		param_6=0.3,
+		param_7=1,
+		param_8=0.33,
+		param_9=128,
+		param_10=False,
+		param_11=False,
+		param_12=1,
+		param_13=True,
+		param_14=0.7,
+		param_15="contentvec",
+		param_16=None,
+		param_17=0,
+		api_name="/partial_40"
+)
+print(result)
+Accepts 17 parameters:
+ 
+param_0 filepath Required
+The input value that is provided in the "Speech" Audio component. The FileData class is a subclass of the GradioModel class that represents a file object within a Gradio interface. It is used to store file data and metadata when a file is uploaded. Attributes: path: The server file path where the file is stored. url: The normalized server URL pointing to the file. size: The size of the file in bytes. orig_name: The original filename before upload. mime_type: The MIME type of the file. is_stream: Indicates whether the file is a stream. meta: Additional metadata used internally (should not be changed).
+ 
+param_2 Literal[] Required
+The input value that is provided in the "Voice model" Dropdown component.
+ 
+param_3 float Default: 0
+The input value that is provided in the "Octave shift" Slider component.
+ 
+param_4 float Default: 0
+The input value that is provided in the "Semitone shift" Slider component.
+ 
+param_5 list[Literal['rmvpe', 'crepe', 'crepe-tiny', 'fcpe']] Default: ["rmvpe"]
+The input value that is provided in the "Pitch extraction algorithm(s)" Dropdown component.
+ 
+param_6 float Default: 0.3
+The input value that is provided in the "Index rate" Slider component.
+ 
+param_7 float Default: 1
+The input value that is provided in the "RMS mix rate" Slider component.
+ 
+param_8 float Default: 0.33
+The input value that is provided in the "Protect rate" Slider component.
+ 
+param_9 float Default: 128
+The input value that is provided in the "Hop length" Slider component.
+ 
+param_10 bool Default: False
+The input value that is provided in the "Split input voice" Checkbox component.
+ 
+param_11 bool Default: False
+The input value that is provided in the "Autotune converted voice" Checkbox component.
+ 
+param_12 float Default: 1
+The input value that is provided in the "Autotune intensity" Slider component.
+ 
+param_13 bool Default: True
+The input value that is provided in the "Clean converted voice" Checkbox component.
+ 
+param_14 float Default: 0.7
+The input value that is provided in the "Cleaning intensity" Slider component.
+ 
+param_15 Literal['contentvec', 'chinese-hubert-base', 'japanese-hubert-base', 'korean-hubert-base', 'custom'] Default: "contentvec"
+The input value that is provided in the "Embedder model" Dropdown component.
+ 
+param_16 Literal[] Required
+The input value that is provided in the "Custom embedder model" Dropdown component.
+ 
+param_17 float Default: 0
+The input value that is provided in the "Speaker ID" Number component.
+Returns 1 element
+ 
+filepath
+The output value that appears in the "Converted speech" Audio component.
+api_name: /partial_41
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_41"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+ 
+list[Literal[]]
+The output value that appears in the "Speech audio files" Dropdown component.
+api_name: /partial_42
+copy
+from gradio_client import Client, handle_file
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		output_indices=["Step 3: speech"],
+		track=handle_file('https://github.com/gradio-app/gradio/raw/main/test/test_files/audio_sample.wav'),
+		api_name="/partial_42"
+)
+print(result)
+Accepts 2 parameters:
+ 
+output_indices list[Literal['Step 2: speech', 'Step 3: speech']] Default: ["Step 3: speech"]
+The input value that is provided in the "Converted speech destination" Dropdown component.
+ 
+track filepath Required
+The input value that is provided in the "Converted speech" Audio component. The FileData class is a subclass of the GradioModel class that represents a file object within a Gradio interface. It is used to store file data and metadata when a file is uploaded. Attributes: path: The server file path where the file is stored. url: The normalized server URL pointing to the file. size: The size of the file in bytes. orig_name: The original filename before upload. mime_type: The MIME type of the file. is_stream: Indicates whether the file is a stream. meta: Additional metadata used internally (should not be changed).
+Returns tuple of 2 elements
+ 
+[0] filepath
+The output value that appears in the "Speech" Audio component.
+ 
+[1] filepath
+The output value that appears in the "Converted speech" Audio component.
+api_name: /lambda_10
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/lambda_10"
+)
+print(result)
+Accepts 0 parameters:
+Returns tuple of 4 elements
+ 
+[0] float
+The output value that appears in the "Output gain" Slider component.
+ 
+[1] Literal['16000', '44100', '48000', '96000', '192000']
+The output value that appears in the "Output sample rate" Dropdown component.
+ 
+[2] Literal['mp3', 'wav', 'flac', 'ogg', 'm4a', 'aac']
+The output value that appears in the "Output format" Dropdown component.
+ 
+[3] list[Literal['Step 2: speech', 'Step 3: speech']]
+The output value that appears in the "Mixed speech destination" Dropdown component.
+api_name: /_wrapped_fn_6
+copy
+from gradio_client import Client, handle_file
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		param_0=handle_file('https://github.com/gradio-app/gradio/raw/main/test/test_files/audio_sample.wav'),
+		param_1=0,
+		param_2="44100",
+		param_3="mp3",
+		param_4="Hello!!",
+		api_name="/_wrapped_fn_6"
+)
+print(result)
+Accepts 5 parameters:
+ 
+param_0 filepath Required
+The input value that is provided in the "Converted speech" Audio component. The FileData class is a subclass of the GradioModel class that represents a file object within a Gradio interface. It is used to store file data and metadata when a file is uploaded. Attributes: path: The server file path where the file is stored. url: The normalized server URL pointing to the file. size: The size of the file in bytes. orig_name: The original filename before upload. mime_type: The MIME type of the file. is_stream: Indicates whether the file is a stream. meta: Additional metadata used internally (should not be changed).
+ 
+param_1 float Default: 0
+The input value that is provided in the "Output gain" Slider component.
+ 
+param_2 Literal['16000', '44100', '48000', '96000', '192000'] Default: "44100"
+The input value that is provided in the "Output sample rate" Dropdown component.
+ 
+param_3 Literal['mp3', 'wav', 'flac', 'ogg', 'm4a', 'aac'] Default: "mp3"
+The input value that is provided in the "Output format" Dropdown component.
+ 
+param_4 str Required
+The input value that is provided in the "Output name" Textbox component.
+Returns 1 element
+ 
+filepath
+The output value that appears in the "Mixed speech" Audio component.
+api_name: /partial_43
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_43"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+ 
+list[Literal[]]
+The output value that appears in the "Output audio files" Dropdown component.
+api_name: /partial_44
+copy
+from gradio_client import Client, handle_file
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		output_indices=[],
+		track=handle_file('https://github.com/gradio-app/gradio/raw/main/test/test_files/audio_sample.wav'),
+		api_name="/partial_44"
+)
+print(result)
+Accepts 2 parameters:
+ 
+output_indices list[Literal['Step 2: speech', 'Step 3: speech']] Default: []
+The input value that is provided in the "Mixed speech destination" Dropdown component.
+ 
+track filepath Required
+The input value that is provided in the "Mixed speech" Audio component. The FileData class is a subclass of the GradioModel class that represents a file object within a Gradio interface. It is used to store file data and metadata when a file is uploaded. Attributes: path: The server file path where the file is stored. url: The normalized server URL pointing to the file. size: The size of the file in bytes. orig_name: The original filename before upload. mime_type: The MIME type of the file. is_stream: Indicates whether the file is a stream. meta: Additional metadata used internally (should not be changed).
+Returns tuple of 2 elements
+ 
+[0] filepath
+The output value that appears in the "Speech" Audio component.
+ 
+[1] filepath
+The output value that appears in the "Converted speech" Audio component.
+api_name: /_filter_public_models_table
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		tags=[],
+		query="Hello!!",
+		api_name="/_filter_public_models_table"
+)
+print(result)
+Accepts 2 parameters:
+ 
+tags list[Literal['English', 'Japanese', 'Other Language', 'Anime', 'Vtuber', 'Real person', 'Game character']] Default: []
+The input value that is provided in the "Tags" Checkboxgroup component.
+ 
+query str Required
+The input value that is provided in the "Search query" Textbox component.
+Returns 1 element
+ 
+dict(headers: list[Any], data: list[list[Any]], metadata: dict(str, list[Any] | None) | None)
+The output value that appears in the "Public models table" Dataframe component.
+api_name: /_autofill_model_name_and_url
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		public_models_table={"headers":["Name","Description","Tags","Credit","Added","URL"],"data":[["Emilia","Emilia from Re:Zero",["Anime"],"rinka4759","2023-07-31","https://huggingface.co/RinkaEmina/RVC_Sharing/resolve/main/Emilia%20V2%2048000.zip"],["Klee","Klee from Genshin Impact",["Game character","Japanese"],"qweshsmashjuicefruity","2023-07-31","https://huggingface.co/qweshkka/Klee/resolve/main/Klee.zip"],["Yelan","Yelan from Genshin Impact",["Game character","Japanese"],"iroak","2023-07-31","https://huggingface.co/iroaK/RVC2_Yelan_GenshinImpact/resolve/main/YelanJP.zip"],["Yae Miko","Yae Miko from Genshin Impact",["Game character","Japanese"],"iroak","2023-07-31","https://huggingface.co/iroaK/RVC2_YaeMiko_GenshinImpact/resolve/main/Yae_MikoJP.zip"],["Lisa","Lisa from Genshin Impact",["Game character","English"],"qweshsmashjuicefruity","2023-07-31","https://huggingface.co/qweshkka/Lisa2ver/resolve/main/Lisa.zip"],["Kazuha","Kaedehara Kazuha from Genshin Impact",["Game character","Japanese"],"iroak","2023-07-31","https://huggingface.co/iroaK/RVC2_Kazuha_GenshinImpact/resolve/main/Kazuha.zip"],["Barbara","Barbara from Genshin Impact",["Game character","Japanese"],"iroak","2023-07-31","https://huggingface.co/iroaK/RVC2_Barbara_GenshinImpact/resolve/main/BarbaraJP.zip"],["Tom Holland","Tom Holland (Spider-Man)",["Real person","English"],"tjkcreative","2023-08-03","https://huggingface.co/TJKAI/TomHolland/resolve/main/TomHolland.zip"],["Kamisato Ayaka","Kamisato Ayaka from Genshin Impact - CN voice actor",["Game character","Other Language"],"kannysoap","2023-08-03","https://huggingface.co/benitheworld/ayaka-cn/resolve/main/ayaka-cn.zip"],["Amai Odayaka","Amai Odayaka from Yandere Simulator",["Anime","English"],"minecraftian47","2023-08-03","https://huggingface.co/NoIdea4Username/NoIdeaRVCCollection/resolve/main/Amai-Odayaka.zip"],["Compa - Hyperdimension Neptunia","Compa from Choujigen Game Neptune (aka Hyperdimension Neptunia)",["Anime","Japanese"],"zeerowiibu","2023-08-03","https://huggingface.co/zeerowiibu/WiibuRVCCollection/resolve/main/Compa%20(Choujigen%20Game%20Neptunia)%20(JPN)%20(RVC%20v2)%20(150%20Epochs).zip"],["Fu Xuan","Fu Xuan from Honkai Star Rail (HSR)",["Game character","English"],"__june","2023-08-03","https://huggingface.co/Juneuarie/FuXuan/resolve/main/FuXuan.zip"],["Xinyan","Xinyan from Genshin Impact",["Game character","English"],"shyelijah","2023-08-03","https://huggingface.co/AnimeSessions/rvc_voice_models/resolve/main/XinyanRVC.zip"],["Enterprise","Enterprise from Azur Lane",["Anime","Japanese"],"minecraftian47","2023-08-03","https://huggingface.co/NoIdea4Username/NoIdeaRVCCollection/resolve/main/Enterprise-JP.zip"],["Kurt Cobain","singer Kurt Cobain",["Real person","English"],"florst","2023-08-03","https://huggingface.co/Florstie/Kurt_Cobain_byFlorst/resolve/main/Kurt_Florst.zip"],["Ironmouse","Ironmouse",["Vtuber","English"],"ladyimpa","2023-08-03","https://huggingface.co/Tempo-Hawk/IronmouseV2/resolve/main/IronmouseV2.zip"],["Bratishkinoff","Bratishkinoff (Bratishkin | Братишкин) - russian steamer ",["Real person","Other Language"],".caddii","2023-08-03","https://huggingface.co/JHmashups/Bratishkinoff/resolve/main/bratishkin.zip"],["Yagami Light","Yagami Light (Miyano Mamoru) from death note",["Anime","Japanese"],"takka / takka#7700","2023-08-03","https://huggingface.co/geekdom-tr/Yagami-Light/resolve/main/Yagami-Light.zip"],["Itashi","Itashi (Russian fandubber AniLibria) ",["Anime","Other Language","Real person"],"BelochkaOff","2023-08-03","https://huggingface.co/4uGGun/4uGGunRVC/resolve/main/itashi.zip"],["Michiru Kagemori","Michiru Kagemori from Brand New Animal (300 Epochs)",["Anime","English"],"wolfmk","2023-08-03","https://huggingface.co/WolfMK/MichiruKagemori/resolve/main/MichiruKagemori_RVC_V2.zip"],["Kaeya","Kaeya (VA: Kohsuke Toriumi) from Genshin Impact (300 Epochs)",["Game character","Japanese"],"nlordqting4444","2023-08-03","https://huggingface.co/nlordqting4444/nlordqtingRVC/resolve/main/Kaeya.zip"],["Mona Megistus","Mona Megistus (VA: Felecia Angelle) from Genshin Impact (250 Epochs)",["Game character","English"],"shyelijah","2023-08-03","https://huggingface.co/AnimeSessions/rvc_voice_models/resolve/main/MonaRVC.zip"],["Klee","Klee from Genshin Impact (400 Epochs)",["Game character","English"],"hardbop","2023-08-03","https://huggingface.co/hardbop/AI_MODEL_THINGY/resolve/main/kleeeng_rvc.zip"],["Sakurakoji Kinako","Sakurakoji Kinako (Suzuhara Nozomi) from Love Live! Superstar!! (700 Epoch)",["Anime","Japanese"],"ck1089","2023-08-03","https://huggingface.co/Gorodogi/RVC2MangioCrepe/resolve/main/kinakobetatwo700.zip"],["Minamo Kurosawa","Minamo (Nyamo) Kurosawa (Azumanga Daioh US DUB) (300 Epochs)",["Anime"],"timothy10583","2023-08-03","https://huggingface.co/timothy10583/RVC/resolve/main/minamo-kurosawa.zip"],["Neco Arc","Neco Arc (Neco-Aruku) (Epochs 600)",["Anime"],"ozzy_helix_","2023-08-03","https://huggingface.co/Ozzy-Helix/Neko_Arc_Neko_Aruku.RVCv2/resolve/main/Neko_Arc-V3-E600.zip"],["Makima","Makima from Chainsaw Man (300 Epochs)",["Anime","English"],"andpproximately","2023-08-03","https://huggingface.co/andolei/makimaen/resolve/main/makima-en-dub.zip"],["PomPom","PomPom from Honkai Star Rail (HSR) (200 Epochs)",["Game character","English"],"kannysoap","2023-08-03","https://huggingface.co/benitheworld/pom-pom/resolve/main/pom-pom.zip"],["Asuka Langley Soryu","Asuka Langley Soryu/Tiffany Grant from Neon Genesis Evangelion (400 Epochs)",["Anime","English"],"piegirl","2023-08-03","https://huggingface.co/Piegirl/asukaadv/resolve/main/asuka.zip"],["Ochaco Uraraka","Ochaco Uraraka from Boku no Hero Academia (320 Epochs)",["Anime","Japanese"],"danthevegetable","2023-08-03","https://huggingface.co/legitdark/JP-Uraraka-By-Dan/resolve/main/JP-Uraraka-By-Dan.zip"],["Sunaokami Shiroko","Sunaokami Shiroko from Blue Archive (500 Epochs)",["Anime"],"lorddavis778","2023-08-03","https://huggingface.co/LordDavis778/BlueArchivevoicemodels/resolve/main/SunaokamiShiroko.zip"],["Dainsleif","Dainsleif from Genshin Impact (335 Epochs)",["Game character","English"],"nasley","2023-08-03","https://huggingface.co/Nasleyy/NasleyRVC/resolve/main/Voices/Dainsleif/Dainsleif.zip"],["Mae Asmr","Mae Asmr - harvest mommy voice (YOUTUBE) (300 Epochs)",["English","Real person","Vtuber"],"ctian_04","2023-08-03","https://huggingface.co/ctian/VRC/resolve/main/MaeASMR.zip"],["Hana Shirosaki ","Hana Shirosaki / 白 咲 花 From Watashi ni Tenshi ga Maiorita! (570 Epochs)",["Anime","Japanese"],"tamalik","2023-08-03","https://huggingface.co/Pawlik17/HanaWataten/resolve/main/HanaWATATEN.zip"],["Kaguya Shinomiya ","Kaguya Shinomiya from Kaguya-Sama Love is war (200 Epochs)",["Anime","Japanese"],"1ski","2023-08-03","https://huggingface.co/1ski/1skiRVCModels/resolve/main/kaguyav5.zip"],["Nai Shiro","Nai Shiro (Ai Kayano) from No Game No Life (360 Epochs)",["Anime","Japanese"],"kxouyou","2023-08-03","https://huggingface.co/kuushiro/Shiro-RVC-No-Game-No-Life/resolve/main/shiro-jp-360-epochs.zip"],["Yuigahama Yui","Yuigahama Yui from Yahari Ore no Seishun Love Comedy wa Machigatteiru (250 Epochs)",["Anime","Japanese"],"zerokano","2023-08-03","https://huggingface.co/Zerokano/Yuigahama_Yui-RVCv2/resolve/main/Yuigahama_Yui.zip"],["Fuwawa Abyssgard","Fuwawa Abyssgard (FUWAMOCO) from Hololive gen 3 (250 Epochs)",["Vtuber","English"],"megaaziib","2023-08-03","https://huggingface.co/megaaziib/my-rvc-models-collection/resolve/main/fuwawa.zip"],["Kana Arima","Kana Arima from Oshi no Ko (250 Epochs)",["Anime","Japanese"],"ddoumakunn","2023-08-03","https://huggingface.co/ddoumakunn/arimakanna/resolve/main/arimakanna.zip"],["Raiden Shogun","Raiden Shogun from Genshin Impact (310 Epochs)",["Game character","English"],"nasley","2023-08-03","https://huggingface.co/Nasleyy/NasleyRVC/resolve/main/Voices/RaidenShogun/RaidenShogun.zip"],["Alhaitham","Alhaitham from Genshin Impact (320 Epochs)",["Game character","English"],"nasley","2023-08-03","https://huggingface.co/Nasleyy/NasleyRVC/resolve/main/Voices/Alhaitham/Alhaitham.zip"],["Izuku Midoriya","Izuku Midoriya from Boku no Hero Academia (100 Epochs)",["Anime","Japanese"],"khjjnoffical","2023-08-03","https://huggingface.co/BigGuy635/MHA/resolve/main/DekuJP.zip"],["Kurumi Shiratori","Kurumi Shiratori (VA: Ruka Fukagawa) from D4DJ (500 Epochs)",["Anime","Japanese"],"seakrait","2023-08-03","https://huggingface.co/HarunaKasuga/YoshikoTsushima/resolve/main/KurumiShiratori.zip"],["Veibae","Veibae (165 Epochs)",["Vtuber","English"],"recairo","2023-08-03","https://huggingface.co/datasets/Papaquans/Veibae/resolve/main/veibae_e165_s125565.zip"],["Black Panther","Black Panther (Chadwick Boseman) (300 Epochs)",["Real person","English"],"tjkcreative","2023-08-03","https://huggingface.co/TJKAI/BlackPannther/resolve/main/BlackPanther.zip"],["Gawr Gura","Gawr Gura from Hololive EN",["Vtuber"],"dacoolkid44 & hijack","2023-08-05","https://pixeldrain.com/u/3tJmABXA"],["Houshou Marine","Houshou Marine from Hololive JP",["Vtuber","Japanese"],"dacoolkid44 & hijack","2023-08-05","https://pixeldrain.com/u/L1YLfZyU"],["Hoshimachi Suisei","Hoshimachi Suisei from Hololive JP",["Vtuber","Japanese"],"dacoolkid44 & hijack & Maki Ligon","2023-08-05","https://pixeldrain.com/u/YP89C21u"],["Laplus Darkness","Laplus Darkness from Hololive JP",["Vtuber","Japanese"],"dacoolkid44 & hijack","2023-08-05","https://pixeldrain.com/u/zmuxv5Bf"],["AZKi","AZKi from Hololive JP",["Vtuber","Japanese"],"Kit Lemonfoot / NSHFB","2023-08-05","https://huggingface.co/Kit-Lemonfoot/kitlemonfoot_rvc_models/resolve/main/AZKi%20(Hybrid).zip"],["Ado","Talented JP artist (500 epochs using every song from her first album)",["Real person","Japanese"],"pjesek","2023-08-05","https://huggingface.co/pjesek/AdoRVCv2/resolve/main/AdoRVCv2.zip"],["LiSA","Talented JP artist (400 epochs)",["Real person","Japanese"],"Phant0m","2023-08-05","https://huggingface.co/phant0m4r/LiSA/resolve/main/LiSA.zip"],["Kokomi","Kokomi from Genshin Impact KR (300 Epochs)",["Game character","Other Language"],"kannysoap","2023-08-09","https://huggingface.co/benitheworld/kokomi-kr/resolve/main/kokomi-kr.zip"],["Ivanzolo","Ivanzolo2004 russian streamer | Иван Золо 2004",["Other Language","Real person"],"prezervativ_naruto2009","2023-08-09","https://huggingface.co/fenikkusugosuto/IvanZolo2004/resolve/main/ivanZolo.zip"],["Nilou","Nilou from Genshin Impact KR (300 Epochs)",["Game character","Other Language"],"kannysoap","2023-08-09","https://huggingface.co/benitheworld/nilou-kr/resolve/main/nilou-kr.zip"],["Dr. Doofenshmirtz","RUS Dr. Doofenshmirtz from Phineas and Ferb  (300 epochs)",["Other Language"],"argaxus","2023-08-09","https://huggingface.co/Argax/doofenshmirtz-RUS/resolve/main/doofenshmirtz.zip"]],"metadata":None},
+		api_name="/_autofill_model_name_and_url"
+)
+print(result)
+Accepts 1 parameter:
+ 
+public_models_table dict(headers: list[Any], data: list[list[Any]], metadata: dict(str, list[Any] | None) | None) Default: {"headers":["Name","Description","Tags","Credit","Added","URL"],"data":[["Emilia","Emilia from Re:Zero",["Anime"],"rinka4759","2023-07-31","https://huggingface.co/RinkaEmina/RVC_Sharing/resolve/main/Emilia%20V2%2048000.zip"],["Klee","Klee from Genshin Impact",["Game character","Japanese"],"qweshsmashjuicefruity","2023-07-31","https://huggingface.co/qweshkka/Klee/resolve/main/Klee.zip"],["Yelan","Yelan from Genshin Impact",["Game character","Japanese"],"iroak","2023-07-31","https://huggingface.co/iroaK/RVC2_Yelan_GenshinImpact/resolve/main/YelanJP.zip"],["Yae Miko","Yae Miko from Genshin Impact",["Game character","Japanese"],"iroak","2023-07-31","https://huggingface.co/iroaK/RVC2_YaeMiko_GenshinImpact/resolve/main/Yae_MikoJP.zip"],["Lisa","Lisa from Genshin Impact",["Game character","English"],"qweshsmashjuicefruity","2023-07-31","https://huggingface.co/qweshkka/Lisa2ver/resolve/main/Lisa.zip"],["Kazuha","Kaedehara Kazuha from Genshin Impact",["Game character","Japanese"],"iroak","2023-07-31","https://huggingface.co/iroaK/RVC2_Kazuha_GenshinImpact/resolve/main/Kazuha.zip"],["Barbara","Barbara from Genshin Impact",["Game character","Japanese"],"iroak","2023-07-31","https://huggingface.co/iroaK/RVC2_Barbara_GenshinImpact/resolve/main/BarbaraJP.zip"],["Tom Holland","Tom Holland (Spider-Man)",["Real person","English"],"tjkcreative","2023-08-03","https://huggingface.co/TJKAI/TomHolland/resolve/main/TomHolland.zip"],["Kamisato Ayaka","Kamisato Ayaka from Genshin Impact - CN voice actor",["Game character","Other Language"],"kannysoap","2023-08-03","https://huggingface.co/benitheworld/ayaka-cn/resolve/main/ayaka-cn.zip"],["Amai Odayaka","Amai Odayaka from Yandere Simulator",["Anime","English"],"minecraftian47","2023-08-03","https://huggingface.co/NoIdea4Username/NoIdeaRVCCollection/resolve/main/Amai-Odayaka.zip"],["Compa - Hyperdimension Neptunia","Compa from Choujigen Game Neptune (aka Hyperdimension Neptunia)",["Anime","Japanese"],"zeerowiibu","2023-08-03","https://huggingface.co/zeerowiibu/WiibuRVCCollection/resolve/main/Compa%20(Choujigen%20Game%20Neptunia)%20(JPN)%20(RVC%20v2)%20(150%20Epochs).zip"],["Fu Xuan","Fu Xuan from Honkai Star Rail (HSR)",["Game character","English"],"__june","2023-08-03","https://huggingface.co/Juneuarie/FuXuan/resolve/main/FuXuan.zip"],["Xinyan","Xinyan from Genshin Impact",["Game character","English"],"shyelijah","2023-08-03","https://huggingface.co/AnimeSessions/rvc_voice_models/resolve/main/XinyanRVC.zip"],["Enterprise","Enterprise from Azur Lane",["Anime","Japanese"],"minecraftian47","2023-08-03","https://huggingface.co/NoIdea4Username/NoIdeaRVCCollection/resolve/main/Enterprise-JP.zip"],["Kurt Cobain","singer Kurt Cobain",["Real person","English"],"florst","2023-08-03","https://huggingface.co/Florstie/Kurt_Cobain_byFlorst/resolve/main/Kurt_Florst.zip"],["Ironmouse","Ironmouse",["Vtuber","English"],"ladyimpa","2023-08-03","https://huggingface.co/Tempo-Hawk/IronmouseV2/resolve/main/IronmouseV2.zip"],["Bratishkinoff","Bratishkinoff (Bratishkin | Братишкин) - russian steamer ",["Real person","Other Language"],".caddii","2023-08-03","https://huggingface.co/JHmashups/Bratishkinoff/resolve/main/bratishkin.zip"],["Yagami Light","Yagami Light (Miyano Mamoru) from death note",["Anime","Japanese"],"takka / takka#7700","2023-08-03","https://huggingface.co/geekdom-tr/Yagami-Light/resolve/main/Yagami-Light.zip"],["Itashi","Itashi (Russian fandubber AniLibria) ",["Anime","Other Language","Real person"],"BelochkaOff","2023-08-03","https://huggingface.co/4uGGun/4uGGunRVC/resolve/main/itashi.zip"],["Michiru Kagemori","Michiru Kagemori from Brand New Animal (300 Epochs)",["Anime","English"],"wolfmk","2023-08-03","https://huggingface.co/WolfMK/MichiruKagemori/resolve/main/MichiruKagemori_RVC_V2.zip"],["Kaeya","Kaeya (VA: Kohsuke Toriumi) from Genshin Impact (300 Epochs)",["Game character","Japanese"],"nlordqting4444","2023-08-03","https://huggingface.co/nlordqting4444/nlordqtingRVC/resolve/main/Kaeya.zip"],["Mona Megistus","Mona Megistus (VA: Felecia Angelle) from Genshin Impact (250 Epochs)",["Game character","English"],"shyelijah","2023-08-03","https://huggingface.co/AnimeSessions/rvc_voice_models/resolve/main/MonaRVC.zip"],["Klee","Klee from Genshin Impact (400 Epochs)",["Game character","English"],"hardbop","2023-08-03","https://huggingface.co/hardbop/AI_MODEL_THINGY/resolve/main/kleeeng_rvc.zip"],["Sakurakoji Kinako","Sakurakoji Kinako (Suzuhara Nozomi) from Love Live! Superstar!! (700 Epoch)",["Anime","Japanese"],"ck1089","2023-08-03","https://huggingface.co/Gorodogi/RVC2MangioCrepe/resolve/main/kinakobetatwo700.zip"],["Minamo Kurosawa","Minamo (Nyamo) Kurosawa (Azumanga Daioh US DUB) (300 Epochs)",["Anime"],"timothy10583","2023-08-03","https://huggingface.co/timothy10583/RVC/resolve/main/minamo-kurosawa.zip"],["Neco Arc","Neco Arc (Neco-Aruku) (Epochs 600)",["Anime"],"ozzy_helix_","2023-08-03","https://huggingface.co/Ozzy-Helix/Neko_Arc_Neko_Aruku.RVCv2/resolve/main/Neko_Arc-V3-E600.zip"],["Makima","Makima from Chainsaw Man (300 Epochs)",["Anime","English"],"andpproximately","2023-08-03","https://huggingface.co/andolei/makimaen/resolve/main/makima-en-dub.zip"],["PomPom","PomPom from Honkai Star Rail (HSR) (200 Epochs)",["Game character","English"],"kannysoap","2023-08-03","https://huggingface.co/benitheworld/pom-pom/resolve/main/pom-pom.zip"],["Asuka Langley Soryu","Asuka Langley Soryu/Tiffany Grant from Neon Genesis Evangelion (400 Epochs)",["Anime","English"],"piegirl","2023-08-03","https://huggingface.co/Piegirl/asukaadv/resolve/main/asuka.zip"],["Ochaco Uraraka","Ochaco Uraraka from Boku no Hero Academia (320 Epochs)",["Anime","Japanese"],"danthevegetable","2023-08-03","https://huggingface.co/legitdark/JP-Uraraka-By-Dan/resolve/main/JP-Uraraka-By-Dan.zip"],["Sunaokami Shiroko","Sunaokami Shiroko from Blue Archive (500 Epochs)",["Anime"],"lorddavis778","2023-08-03","https://huggingface.co/LordDavis778/BlueArchivevoicemodels/resolve/main/SunaokamiShiroko.zip"],["Dainsleif","Dainsleif from Genshin Impact (335 Epochs)",["Game character","English"],"nasley","2023-08-03","https://huggingface.co/Nasleyy/NasleyRVC/resolve/main/Voices/Dainsleif/Dainsleif.zip"],["Mae Asmr","Mae Asmr - harvest mommy voice (YOUTUBE) (300 Epochs)",["English","Real person","Vtuber"],"ctian_04","2023-08-03","https://huggingface.co/ctian/VRC/resolve/main/MaeASMR.zip"],["Hana Shirosaki ","Hana Shirosaki / 白 咲 花 From Watashi ni Tenshi ga Maiorita! (570 Epochs)",["Anime","Japanese"],"tamalik","2023-08-03","https://huggingface.co/Pawlik17/HanaWataten/resolve/main/HanaWATATEN.zip"],["Kaguya Shinomiya ","Kaguya Shinomiya from Kaguya-Sama Love is war (200 Epochs)",["Anime","Japanese"],"1ski","2023-08-03","https://huggingface.co/1ski/1skiRVCModels/resolve/main/kaguyav5.zip"],["Nai Shiro","Nai Shiro (Ai Kayano) from No Game No Life (360 Epochs)",["Anime","Japanese"],"kxouyou","2023-08-03","https://huggingface.co/kuushiro/Shiro-RVC-No-Game-No-Life/resolve/main/shiro-jp-360-epochs.zip"],["Yuigahama Yui","Yuigahama Yui from Yahari Ore no Seishun Love Comedy wa Machigatteiru (250 Epochs)",["Anime","Japanese"],"zerokano","2023-08-03","https://huggingface.co/Zerokano/Yuigahama_Yui-RVCv2/resolve/main/Yuigahama_Yui.zip"],["Fuwawa Abyssgard","Fuwawa Abyssgard (FUWAMOCO) from Hololive gen 3 (250 Epochs)",["Vtuber","English"],"megaaziib","2023-08-03","https://huggingface.co/megaaziib/my-rvc-models-collection/resolve/main/fuwawa.zip"],["Kana Arima","Kana Arima from Oshi no Ko (250 Epochs)",["Anime","Japanese"],"ddoumakunn","2023-08-03","https://huggingface.co/ddoumakunn/arimakanna/resolve/main/arimakanna.zip"],["Raiden Shogun","Raiden Shogun from Genshin Impact (310 Epochs)",["Game character","English"],"nasley","2023-08-03","https://huggingface.co/Nasleyy/NasleyRVC/resolve/main/Voices/RaidenShogun/RaidenShogun.zip"],["Alhaitham","Alhaitham from Genshin Impact (320 Epochs)",["Game character","English"],"nasley","2023-08-03","https://huggingface.co/Nasleyy/NasleyRVC/resolve/main/Voices/Alhaitham/Alhaitham.zip"],["Izuku Midoriya","Izuku Midoriya from Boku no Hero Academia (100 Epochs)",["Anime","Japanese"],"khjjnoffical","2023-08-03","https://huggingface.co/BigGuy635/MHA/resolve/main/DekuJP.zip"],["Kurumi Shiratori","Kurumi Shiratori (VA: Ruka Fukagawa) from D4DJ (500 Epochs)",["Anime","Japanese"],"seakrait","2023-08-03","https://huggingface.co/HarunaKasuga/YoshikoTsushima/resolve/main/KurumiShiratori.zip"],["Veibae","Veibae (165 Epochs)",["Vtuber","English"],"recairo","2023-08-03","https://huggingface.co/datasets/Papaquans/Veibae/resolve/main/veibae_e165_s125565.zip"],["Black Panther","Black Panther (Chadwick Boseman) (300 Epochs)",["Real person","English"],"tjkcreative","2023-08-03","https://huggingface.co/TJKAI/BlackPannther/resolve/main/BlackPanther.zip"],["Gawr Gura","Gawr Gura from Hololive EN",["Vtuber"],"dacoolkid44 & hijack","2023-08-05","https://pixeldrain.com/u/3tJmABXA"],["Houshou Marine","Houshou Marine from Hololive JP",["Vtuber","Japanese"],"dacoolkid44 & hijack","2023-08-05","https://pixeldrain.com/u/L1YLfZyU"],["Hoshimachi Suisei","Hoshimachi Suisei from Hololive JP",["Vtuber","Japanese"],"dacoolkid44 & hijack & Maki Ligon","2023-08-05","https://pixeldrain.com/u/YP89C21u"],["Laplus Darkness","Laplus Darkness from Hololive JP",["Vtuber","Japanese"],"dacoolkid44 & hijack","2023-08-05","https://pixeldrain.com/u/zmuxv5Bf"],["AZKi","AZKi from Hololive JP",["Vtuber","Japanese"],"Kit Lemonfoot / NSHFB","2023-08-05","https://huggingface.co/Kit-Lemonfoot/kitlemonfoot_rvc_models/resolve/main/AZKi%20(Hybrid).zip"],["Ado","Talented JP artist (500 epochs using every song from her first album)",["Real person","Japanese"],"pjesek","2023-08-05","https://huggingface.co/pjesek/AdoRVCv2/resolve/main/AdoRVCv2.zip"],["LiSA","Talented JP artist (400 epochs)",["Real person","Japanese"],"Phant0m","2023-08-05","https://huggingface.co/phant0m4r/LiSA/resolve/main/LiSA.zip"],["Kokomi","Kokomi from Genshin Impact KR (300 Epochs)",["Game character","Other Language"],"kannysoap","2023-08-09","https://huggingface.co/benitheworld/kokomi-kr/resolve/main/kokomi-kr.zip"],["Ivanzolo","Ivanzolo2004 russian streamer | Иван Золо 2004",["Other Language","Real person"],"prezervativ_naruto2009","2023-08-09","https://huggingface.co/fenikkusugosuto/IvanZolo2004/resolve/main/ivanZolo.zip"],["Nilou","Nilou from Genshin Impact KR (300 Epochs)",["Game character","Other Language"],"kannysoap","2023-08-09","https://huggingface.co/benitheworld/nilou-kr/resolve/main/nilou-kr.zip"],["Dr. Doofenshmirtz","RUS Dr. Doofenshmirtz from Phineas and Ferb (300 epochs)",["Other Language"],"argaxus","2023-08-09","https://huggingface.co/Argax/doofenshmirtz-RUS/resolve/main/doofenshmirtz.zip"]],"metadata":None}
+The input value that is provided in the "Public models table" Dataframe component. null
+Returns tuple of 2 elements
+ 
+[0] str
+The output value that appears in the "Model name" Textbox component.
+ 
+[1] str
+The output value that appears in the "Model URL" Textbox component.
+api_name: /_wrapped_fn_7
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		param_0="Hello!!",
+		param_1="Hello!!",
+		api_name="/_wrapped_fn_7"
+)
+print(result)
+Accepts 2 parameters:
+ 
+param_0 str Required
+The input value that is provided in the "Model URL" Textbox component.
+ 
+param_1 str Required
+The input value that is provided in the "Model name" Textbox component.
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /partial_45
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_45"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /_update_pretrained_sample_rates
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		name="Titan",
+		api_name="/_update_pretrained_sample_rates"
+)
+print(result)
+Accepts 1 parameter:
+ 
+name Literal['Beatz Forge', 'DMR V1', 'IMA V1', 'Italia', 'KLM4.1', 'KLM4.2', 'Nanashi v1.7', 'Ov2Super', 'RIN_E3', 'Rigel Base', 'Rigel FineTuned', 'SingerPreTrain', 'Snowie', 'Snowie-X-RinE3', 'Titan', 'UKA'] Default: "Titan"
+The input value that is provided in the "Pretrained model" Dropdown component.
+Returns 1 element
+ 
+Literal['32k', '40k', '48k']
+The output value that appears in the "Sample rate" Dropdown component.
+api_name: /_wrapped_fn_8
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		param_0="Titan",
+		param_1="32k",
+		api_name="/_wrapped_fn_8"
+)
+print(result)
+Accepts 2 parameters:
+ 
+param_0 Literal['Beatz Forge', 'DMR V1', 'IMA V1', 'Italia', 'KLM4.1', 'KLM4.2', 'Nanashi v1.7', 'Ov2Super', 'RIN_E3', 'Rigel Base', 'Rigel FineTuned', 'SingerPreTrain', 'Snowie', 'Snowie-X-RinE3', 'Titan', 'UKA'] Default: "Titan"
+The input value that is provided in the "Pretrained model" Dropdown component.
+ 
+param_1 Literal['32k', '40k', '48k'] Default: "32k"
+The input value that is provided in the "Sample rate" Dropdown component.
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /partial_46
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_46"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /_wrapped_fn_9
+copy
+from gradio_client import Client, handle_file
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		param_0=[handle_file('https://github.com/gradio-app/gradio/raw/main/test/test_files/sample_file.pdf')],
+		param_1="Hello!!",
+		api_name="/_wrapped_fn_9"
+)
+print(result)
+Accepts 2 parameters:
+ 
+param_0 list[filepath] Required
+The input value that is provided in the "Files" File component. null
+ 
+param_1 str Required
+The input value that is provided in the "Model name" Textbox component.
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /partial_47
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_47"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /_wrapped_fn_10
+copy
+from gradio_client import Client, handle_file
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		param_0=[handle_file('https://github.com/gradio-app/gradio/raw/main/test/test_files/sample_file.pdf')],
+		param_1="Hello!!",
+		api_name="/_wrapped_fn_10"
+)
+print(result)
+Accepts 2 parameters:
+ 
+param_0 list[filepath] Required
+The input value that is provided in the "Files" File component. null
+ 
+param_1 str Required
+The input value that is provided in the "Model name" Textbox component.
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /partial_48
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_48"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /_toggle_dataset_input
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		dataset_type="New dataset",
+		api_name="/_toggle_dataset_input"
+)
+print(result)
+Accepts 1 parameter:
+ 
+dataset_type Literal['New dataset', 'Existing dataset'] Default: "New dataset"
+The input value that is provided in the "Dataset type" Dropdown component.
+Returns tuple of 3 elements
+ 
+[0] str
+The output value that appears in the "Dataset name" Textbox component.
+ 
+[1] list[filepath]
+The output value that appears in the "Audio files" File component.
+ 
+[2] Literal[]
+The output value that appears in the "Dataset path" Dropdown component.
+api_name: /_wrapped_fn_11
+copy
+from gradio_client import Client, handle_file
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		param_0="My dataset",
+		param_1=[handle_file('https://github.com/gradio-app/gradio/raw/main/test/test_files/sample_file.pdf')],
+		api_name="/_wrapped_fn_11"
+)
+print(result)
+Accepts 2 parameters:
+ 
+param_0 str Default: "My dataset"
+The input value that is provided in the "Dataset name" Textbox component.
+ 
+param_1 list[filepath] Required
+The input value that is provided in the "Audio files" File component. null
+Returns 1 element
+api_name: /partial_49
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_49"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+ 
+list[filepath]
+The output value that appears in the "Audio files" File component.
+api_name: /partial_50
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_50"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+ 
+Literal[]
+The output value that appears in the "Dataset path" Dropdown component.
+api_name: /partial_51
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_51"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+ 
+list[Literal[]]
+The output value that appears in the "Dataset audio files" Dropdown component.
+api_name: /partial_52
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		value=False,
+		api_name="/partial_52"
+)
+print(result)
+Accepts 1 parameter:
+ 
+value bool Default: False
+The input value that is provided in the "Clean audio" Checkbox component.
+Returns 1 element
+ 
+float
+The output value that appears in the "Cleaning intensity" Slider component.
+api_name: /partial_53
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		value="Automatic",
+		api_name="/partial_53"
+)
+print(result)
+Accepts 1 parameter:
+ 
+value Literal['Skip', 'Simple', 'Automatic'] Default: "Automatic"
+The input value that is provided in the "Audio splitting method" Dropdown component.
+Returns tuple of 2 elements
+ 
+[0] float
+The output value that appears in the "Chunk length" Slider component.
+ 
+[1] float
+The output value that appears in the "Overlap length" Slider component.
+api_name: /_wrapped_fn_12
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		param_0=My model,
+		param_1=None,
+		param_2="40000",
+		param_3="Automatic",
+		param_4=3,
+		param_5=0.3,
+		param_6=True,
+		param_7=False,
+		param_8=0.7,
+		param_9=8,
+		api_name="/_wrapped_fn_12"
+)
+print(result)
+Accepts 10 parameters:
+ 
+param_0 Literal[] Default: My model
+The input value that is provided in the "Model name" Dropdown component.
+ 
+param_1 Literal[] Required
+The input value that is provided in the "Dataset path" Dropdown component.
+ 
+param_2 Literal['32000', '40000', '48000'] Default: "40000"
+The input value that is provided in the "Sample rate" Dropdown component.
+ 
+param_3 Literal['Skip', 'Simple', 'Automatic'] Default: "Automatic"
+The input value that is provided in the "Audio splitting method" Dropdown component.
+ 
+param_4 float Default: 3
+The input value that is provided in the "Chunk length" Slider component.
+ 
+param_5 float Default: 0.3
+The input value that is provided in the "Overlap length" Slider component.
+ 
+param_6 bool Default: True
+The input value that is provided in the "Filter audio" Checkbox component.
+ 
+param_7 bool Default: False
+The input value that is provided in the "Clean audio" Checkbox component.
+ 
+param_8 float Default: 0.7
+The input value that is provided in the "Cleaning intensity" Slider component.
+ 
+param_9 float Default: 8
+The input value that is provided in the "CPU cores" Slider component.
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /partial_54
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_54"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /partial_55
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_55"
+)
+print(result)
+Accepts 0 parameters:
+Returns tuple of 4 elements
+ 
+[0] Literal[]
+The output value that appears in the "Model name" Dropdown component.
+ 
+[1] Literal[]
+The output value that appears in the "Model name" Dropdown component.
+ 
+[2] Literal[]
+The output value that appears in the "Model name" Dropdown component.
+ 
+[3] list[Literal[]]
+The output value that appears in the "Training models" Dropdown component.
+api_name: /_normalize_and_update
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		value=My model,
+		api_name="/_normalize_and_update"
+)
+print(result)
+Accepts 1 parameter:
+ 
+value Literal[] Default: My model
+The input value that is provided in the "Model name" Dropdown component.
+Returns 1 element
+ 
+Literal[]
+The output value that appears in the "Model name" Dropdown component.
+api_name: /update_value_6
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		x=My model,
+		api_name="/update_value_6"
+)
+print(result)
+Accepts 1 parameter:
+ 
+x Literal[] Default: My model
+The input value that is provided in the "Model name" Dropdown component.
+Returns 1 element
+ 
+Literal[]
+The output value that appears in the "Model name" Dropdown component.
+api_name: /lambda_11
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/lambda_11"
+)
+print(result)
+Accepts 0 parameters:
+Returns tuple of 8 elements
+ 
+[0] Literal['32000', '40000', '48000']
+The output value that appears in the "Sample rate" Dropdown component.
+ 
+[1] bool
+The output value that appears in the "Filter audio" Checkbox component.
+ 
+[2] bool
+The output value that appears in the "Clean audio" Checkbox component.
+ 
+[3] float
+The output value that appears in the "Cleaning intensity" Slider component.
+ 
+[4] Literal['Skip', 'Simple', 'Automatic']
+The output value that appears in the "Audio splitting method" Dropdown component.
+ 
+[5] float
+The output value that appears in the "Chunk length" Slider component.
+ 
+[6] float
+The output value that appears in the "Overlap length" Slider component.
+ 
+[7] float
+The output value that appears in the "CPU cores" Slider component.
+api_name: /partial_56
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		value="rmvpe",
+		api_name="/partial_56"
+)
+print(result)
+Accepts 1 parameter:
+ 
+value Literal['rmvpe', 'crepe', 'crepe-tiny'] Default: "rmvpe"
+The input value that is provided in the "F0 method" Dropdown component.
+Returns 1 element
+ 
+float
+The output value that appears in the "Hop length" Slider component.
+api_name: /partial_57
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		value="contentvec",
+		api_name="/partial_57"
+)
+print(result)
+Accepts 1 parameter:
+ 
+value Literal['contentvec', 'chinese-hubert-base', 'japanese-hubert-base', 'korean-hubert-base', 'custom'] Default: "contentvec"
+The input value that is provided in the "Embedder model" Dropdown component.
+Returns 1 element
+ 
+Literal[]
+The output value that appears in the "Custom embedder model" Dropdown component.
+api_name: /partial_58
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		value="Automatic",
+		api_name="/partial_58"
+)
+print(result)
+Accepts 1 parameter:
+ 
+value Literal['Automatic', 'CPU', 'GPU'] Default: "Automatic"
+The input value that is provided in the "Hardware acceleration" Dropdown component.
+Returns 1 element
+ 
+list[Literal['0']]
+The output value that appears in the "GPU(s)" Dropdown component.
+api_name: /_wrapped_fn_13
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		param_0=None,
+		param_1="rmvpe",
+		param_2=128,
+		param_3="contentvec",
+		param_4=None,
+		param_5=2,
+		param_6=8,
+		param_7="Automatic",
+		param_8=[0],
+		api_name="/_wrapped_fn_13"
+)
+print(result)
+Accepts 9 parameters:
+ 
+param_0 Literal[] Required
+The input value that is provided in the "Model name" Dropdown component.
+ 
+param_1 Literal['rmvpe', 'crepe', 'crepe-tiny'] Default: "rmvpe"
+The input value that is provided in the "F0 method" Dropdown component.
+ 
+param_2 float Default: 128
+The input value that is provided in the "Hop length" Slider component.
+ 
+param_3 Literal['contentvec', 'chinese-hubert-base', 'japanese-hubert-base', 'korean-hubert-base', 'custom'] Default: "contentvec"
+The input value that is provided in the "Embedder model" Dropdown component.
+ 
+param_4 Literal[] Required
+The input value that is provided in the "Custom embedder model" Dropdown component.
+ 
+param_5 float Default: 2
+The input value that is provided in the "Include mutes" Slider component.
+ 
+param_6 float Default: 8
+The input value that is provided in the "CPU cores" Slider component.
+ 
+param_7 Literal['Automatic', 'CPU', 'GPU'] Default: "Automatic"
+The input value that is provided in the "Hardware acceleration" Dropdown component.
+ 
+param_8 list[Literal['0']] Default: [0]
+The input value that is provided in the "GPU(s)" Dropdown component.
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /partial_59
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_59"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /update_value_7
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		x=None,
+		api_name="/update_value_7"
+)
+print(result)
+Accepts 1 parameter:
+ 
+x Literal[] Required
+The input value that is provided in the "Model name" Dropdown component.
+Returns 1 element
+ 
+Literal[]
+The output value that appears in the "Model name" Dropdown component.
+api_name: /lambda_12
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/lambda_12"
+)
+print(result)
+Accepts 0 parameters:
+Returns tuple of 7 elements
+ 
+[0] Literal['rmvpe', 'crepe', 'crepe-tiny']
+The output value that appears in the "F0 method" Dropdown component.
+ 
+[1] float
+The output value that appears in the "Hop length" Slider component.
+ 
+[2] Literal['contentvec', 'chinese-hubert-base', 'japanese-hubert-base', 'korean-hubert-base', 'custom']
+The output value that appears in the "Embedder model" Dropdown component.
+ 
+[3] float
+The output value that appears in the "Include mutes" Slider component.
+ 
+[4] float
+The output value that appears in the "CPU cores" Slider component.
+ 
+[5] Literal['Automatic', 'CPU', 'GPU']
+The output value that appears in the "Hardware acceleration" Dropdown component.
+ 
+[6] list[Literal['0']]
+The output value that appears in the "GPU(s)" Dropdown component.
+api_name: /partial_60
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		value=False,
+		api_name="/partial_60"
+)
+print(result)
+Accepts 1 parameter:
+ 
+value bool Default: False
+The input value that is provided in the "Detect overtraining" Checkbox component.
+Returns 1 element
+ 
+float
+The output value that appears in the "Overtraining threshold" Slider component.
+api_name: /partial_61
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		value="Default",
+		api_name="/partial_61"
+)
+print(result)
+Accepts 1 parameter:
+ 
+value Literal['None', 'Default', 'Custom'] Default: "Default"
+The input value that is provided in the "Pretrained model type" Dropdown component.
+Returns 1 element
+ 
+Literal[]
+The output value that appears in the "Custom pretrained model" Dropdown component.
+api_name: /partial_62
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		value=False,
+		api_name="/partial_62"
+)
+print(result)
+Accepts 1 parameter:
+ 
+value bool Default: False
+The input value that is provided in the "Upload voice model" Checkbox component.
+Returns 1 element
+ 
+str
+The output value that appears in the "Upload name" Textbox component.
+api_name: /partial_63
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		value="Automatic",
+		api_name="/partial_63"
+)
+print(result)
+Accepts 1 parameter:
+ 
+value Literal['Automatic', 'CPU', 'GPU'] Default: "Automatic"
+The input value that is provided in the "Hardware acceleration" Dropdown component.
+Returns 1 element
+ 
+list[Literal['0']]
+The output value that appears in the "GPU(s)" Dropdown component.
+api_name: /partial_64
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_64"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+api_name: /_wrapped_fn_14
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		param_0=None,
+		param_1=500,
+		param_2=8,
+		param_3=False,
+		param_4=50,
+		param_5="HiFi-GAN",
+		param_6="Auto",
+		param_7="Default",
+		param_8=None,
+		param_9=10,
+		param_10=False,
+		param_11=False,
+		param_12=False,
+		param_13=False,
+		param_14="Hello!!",
+		param_15="Automatic",
+		param_16=[0],
+		param_17=False,
+		param_18=False,
+		api_name="/_wrapped_fn_14"
+)
+print(result)
+Accepts 19 parameters:
+ 
+param_0 Literal[] Required
+The input value that is provided in the "Model name" Dropdown component.
+ 
+param_1 float Default: 500
+The input value that is provided in the "Number of epochs" Slider component.
+ 
+param_2 float Default: 8
+The input value that is provided in the "Batch size" Slider component.
+ 
+param_3 bool Default: False
+The input value that is provided in the "Detect overtraining" Checkbox component.
+ 
+param_4 float Default: 50
+The input value that is provided in the "Overtraining threshold" Slider component.
+ 
+param_5 Literal['HiFi-GAN', 'MRF HiFi-GAN', 'RefineGAN'] Default: "HiFi-GAN"
+The input value that is provided in the "Vocoder" Dropdown component.
+ 
+param_6 Literal['Auto', 'Faiss', 'KMeans'] Default: "Auto"
+The input value that is provided in the "Index algorithm" Dropdown component.
+ 
+param_7 Literal['None', 'Default', 'Custom'] Default: "Default"
+The input value that is provided in the "Pretrained model type" Dropdown component.
+ 
+param_8 Literal[] Required
+The input value that is provided in the "Custom pretrained model" Dropdown component.
+ 
+param_9 float Default: 10
+The input value that is provided in the "Save interval" Slider component.
+ 
+param_10 bool Default: False
+The input value that is provided in the "Save all checkpoints" Checkbox component.
+ 
+param_11 bool Default: False
+The input value that is provided in the "Save all weights" Checkbox component.
+ 
+param_12 bool Default: False
+The input value that is provided in the "Clear saved data" Checkbox component.
+ 
+param_13 bool Default: False
+The input value that is provided in the "Upload voice model" Checkbox component.
+ 
+param_14 str Required
+The input value that is provided in the "Upload name" Textbox component.
+ 
+param_15 Literal['Automatic', 'CPU', 'GPU'] Default: "Automatic"
+The input value that is provided in the "Hardware acceleration" Dropdown component.
+ 
+param_16 list[Literal['0']] Default: [0]
+The input value that is provided in the "GPU(s)" Dropdown component.
+ 
+param_17 bool Default: False
+The input value that is provided in the "Preload dataset" Checkbox component.
+ 
+param_18 bool Default: False
+The input value that is provided in the "Reduce memory usage" Checkbox component.
+Returns 1 element
+ 
+filepath
+The output value that appears in the "Voice model files" File component.
+api_name: /partial_65
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_65"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+api_name: /partial_66
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_66"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /partial_67
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_67"
+)
+print(result)
+Accepts 0 parameters:
+Returns tuple of 5 elements
+ 
+[0] Literal[]
+The output value that appears in the "Voice model" Dropdown component.
+ 
+[1] Literal[]
+The output value that appears in the "Voice model" Dropdown component.
+ 
+[2] Literal[]
+The output value that appears in the "Voice model" Dropdown component.
+ 
+[3] Literal[]
+The output value that appears in the "Voice model" Dropdown component.
+ 
+[4] list[Literal[]]
+The output value that appears in the "Voice models" Dropdown component.
+api_name: /stop_training
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		model_name=None,
+		api_name="/stop_training"
+)
+print(result)
+Accepts 1 parameter:
+ 
+model_name Literal[] Required
+The input value that is provided in the "Model name" Dropdown component.
+Returns 1 element
+api_name: /lambda_13
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/lambda_13"
+)
+print(result)
+Accepts 0 parameters:
+Returns tuple of 16 elements
+ 
+[0] float
+The output value that appears in the "Number of epochs" Slider component.
+ 
+[1] float
+The output value that appears in the "Batch size" Slider component.
+ 
+[2] bool
+The output value that appears in the "Detect overtraining" Checkbox component.
+ 
+[3] float
+The output value that appears in the "Overtraining threshold" Slider component.
+ 
+[4] Literal['HiFi-GAN', 'MRF HiFi-GAN', 'RefineGAN']
+The output value that appears in the "Vocoder" Dropdown component.
+ 
+[5] Literal['Auto', 'Faiss', 'KMeans']
+The output value that appears in the "Index algorithm" Dropdown component.
+ 
+[6] Literal['None', 'Default', 'Custom']
+The output value that appears in the "Pretrained model type" Dropdown component.
+ 
+[7] float
+The output value that appears in the "Save interval" Slider component.
+ 
+[8] bool
+The output value that appears in the "Save all checkpoints" Checkbox component.
+ 
+[9] bool
+The output value that appears in the "Save all weights" Checkbox component.
+ 
+[10] bool
+The output value that appears in the "Clear saved data" Checkbox component.
+ 
+[11] bool
+The output value that appears in the "Upload voice model" Checkbox component.
+ 
+[12] Literal['Automatic', 'CPU', 'GPU']
+The output value that appears in the "Hardware acceleration" Dropdown component.
+ 
+[13] list[Literal['0']]
+The output value that appears in the "GPU(s)" Dropdown component.
+ 
+[14] bool
+The output value that appears in the "Preload dataset" Checkbox component.
+ 
+[15] bool
+The output value that appears in the "Reduce memory usage" Checkbox component.
+api_name: /_wrapped_fn_15
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		confirm=False,
+		param_1=[],
+		api_name="/_wrapped_fn_15"
+)
+print(result)
+Accepts 2 parameters:
+ 
+confirm bool Default: False
+The input value that is provided in the "parameter_464" Checkbox component.
+ 
+param_1 list[Literal[]] Required
+The input value that is provided in the "Voice models" Dropdown component.
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /partial_68
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_68"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /_wrapped_fn_16
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		confirm=False,
+		api_name="/_wrapped_fn_16"
+)
+print(result)
+Accepts 1 parameter:
+ 
+confirm bool Default: False
+The input value that is provided in the "parameter_464" Checkbox component.
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /partial_69
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_69"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /_wrapped_fn_17
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		confirm=False,
+		param_1=[],
+		api_name="/_wrapped_fn_17"
+)
+print(result)
+Accepts 2 parameters:
+ 
+confirm bool Default: False
+The input value that is provided in the "parameter_464" Checkbox component.
+ 
+param_1 list[Literal[]] Required
+The input value that is provided in the "Custom embedder models" Dropdown component.
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /partial_70
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_70"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /_wrapped_fn_18
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		confirm=False,
+		api_name="/_wrapped_fn_18"
+)
+print(result)
+Accepts 1 parameter:
+ 
+confirm bool Default: False
+The input value that is provided in the "parameter_464" Checkbox component.
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /partial_71
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_71"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /_wrapped_fn_19
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		confirm=False,
+		param_1=[],
+		api_name="/_wrapped_fn_19"
+)
+print(result)
+Accepts 2 parameters:
+ 
+confirm bool Default: False
+The input value that is provided in the "parameter_464" Checkbox component.
+ 
+param_1 list[Literal[]] Required
+The input value that is provided in the "Custom pretrained models" Dropdown component.
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /partial_72
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_72"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /_wrapped_fn_20
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		confirm=False,
+		api_name="/_wrapped_fn_20"
+)
+print(result)
+Accepts 1 parameter:
+ 
+confirm bool Default: False
+The input value that is provided in the "parameter_464" Checkbox component.
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /partial_73
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_73"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /_wrapped_fn_21
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		confirm=False,
+		param_1=[],
+		api_name="/_wrapped_fn_21"
+)
+print(result)
+Accepts 2 parameters:
+ 
+confirm bool Default: False
+The input value that is provided in the "parameter_464" Checkbox component.
+ 
+param_1 list[Literal[]] Required
+The input value that is provided in the "Training models" Dropdown component.
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /partial_74
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_74"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /_wrapped_fn_22
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		confirm=False,
+		api_name="/_wrapped_fn_22"
+)
+print(result)
+Accepts 1 parameter:
+ 
+confirm bool Default: False
+The input value that is provided in the "parameter_464" Checkbox component.
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /partial_75
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_75"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /_wrapped_fn_23
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		confirm=False,
+		api_name="/_wrapped_fn_23"
+)
+print(result)
+Accepts 1 parameter:
+ 
+confirm bool Default: False
+The input value that is provided in the "parameter_464" Checkbox component.
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /partial_76
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_76"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /partial_77
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_77"
+)
+print(result)
+Accepts 0 parameters:
+Returns tuple of 5 elements
+ 
+[0] Literal[]
+The output value that appears in the "Voice model" Dropdown component.
+ 
+[1] Literal[]
+The output value that appears in the "Voice model" Dropdown component.
+ 
+[2] Literal[]
+The output value that appears in the "Voice model" Dropdown component.
+ 
+[3] Literal[]
+The output value that appears in the "Voice model" Dropdown component.
+ 
+[4] list[Literal[]]
+The output value that appears in the "Voice models" Dropdown component.
+api_name: /partial_78
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_78"
+)
+print(result)
+Accepts 0 parameters:
+Returns tuple of 5 elements
+ 
+[0] Literal[]
+The output value that appears in the "Voice model" Dropdown component.
+ 
+[1] Literal[]
+The output value that appears in the "Voice model" Dropdown component.
+ 
+[2] Literal[]
+The output value that appears in the "Voice model" Dropdown component.
+ 
+[3] Literal[]
+The output value that appears in the "Voice model" Dropdown component.
+ 
+[4] list[Literal[]]
+The output value that appears in the "Voice models" Dropdown component.
+api_name: /partial_79
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_79"
+)
+print(result)
+Accepts 0 parameters:
+Returns tuple of 5 elements
+ 
+[0] Literal[]
+The output value that appears in the "Voice model" Dropdown component.
+ 
+[1] Literal[]
+The output value that appears in the "Voice model" Dropdown component.
+ 
+[2] Literal[]
+The output value that appears in the "Voice model" Dropdown component.
+ 
+[3] Literal[]
+The output value that appears in the "Voice model" Dropdown component.
+ 
+[4] list[Literal[]]
+The output value that appears in the "Voice models" Dropdown component.
+api_name: /partial_80
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_80"
+)
+print(result)
+Accepts 0 parameters:
+Returns tuple of 5 elements
+ 
+[0] Literal[]
+The output value that appears in the "Voice model" Dropdown component.
+ 
+[1] Literal[]
+The output value that appears in the "Voice model" Dropdown component.
+ 
+[2] Literal[]
+The output value that appears in the "Voice model" Dropdown component.
+ 
+[3] Literal[]
+The output value that appears in the "Voice model" Dropdown component.
+ 
+[4] list[Literal[]]
+The output value that appears in the "Voice models" Dropdown component.
+api_name: /partial_81
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_81"
+)
+print(result)
+Accepts 0 parameters:
+Returns tuple of 5 elements
+ 
+[0] Literal[]
+The output value that appears in the "Voice model" Dropdown component.
+ 
+[1] Literal[]
+The output value that appears in the "Voice model" Dropdown component.
+ 
+[2] Literal[]
+The output value that appears in the "Voice model" Dropdown component.
+ 
+[3] Literal[]
+The output value that appears in the "Voice model" Dropdown component.
+ 
+[4] list[Literal[]]
+The output value that appears in the "Voice models" Dropdown component.
+api_name: /partial_82
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_82"
+)
+print(result)
+Accepts 0 parameters:
+Returns tuple of 6 elements
+ 
+[0] Literal[]
+The output value that appears in the "Custom embedder model" Dropdown component.
+ 
+[1] Literal[]
+The output value that appears in the "Custom embedder model" Dropdown component.
+ 
+[2] Literal[]
+The output value that appears in the "Custom embedder model" Dropdown component.
+ 
+[3] Literal[]
+The output value that appears in the "Custom embedder model" Dropdown component.
+ 
+[4] Literal[]
+The output value that appears in the "Custom embedder model" Dropdown component.
+ 
+[5] list[Literal[]]
+The output value that appears in the "Custom embedder models" Dropdown component.
+api_name: /partial_83
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_83"
+)
+print(result)
+Accepts 0 parameters:
+Returns tuple of 6 elements
+ 
+[0] Literal[]
+The output value that appears in the "Custom embedder model" Dropdown component.
+ 
+[1] Literal[]
+The output value that appears in the "Custom embedder model" Dropdown component.
+ 
+[2] Literal[]
+The output value that appears in the "Custom embedder model" Dropdown component.
+ 
+[3] Literal[]
+The output value that appears in the "Custom embedder model" Dropdown component.
+ 
+[4] Literal[]
+The output value that appears in the "Custom embedder model" Dropdown component.
+ 
+[5] list[Literal[]]
+The output value that appears in the "Custom embedder models" Dropdown component.
+api_name: /partial_84
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_84"
+)
+print(result)
+Accepts 0 parameters:
+Returns tuple of 6 elements
+ 
+[0] Literal[]
+The output value that appears in the "Custom embedder model" Dropdown component.
+ 
+[1] Literal[]
+The output value that appears in the "Custom embedder model" Dropdown component.
+ 
+[2] Literal[]
+The output value that appears in the "Custom embedder model" Dropdown component.
+ 
+[3] Literal[]
+The output value that appears in the "Custom embedder model" Dropdown component.
+ 
+[4] Literal[]
+The output value that appears in the "Custom embedder model" Dropdown component.
+ 
+[5] list[Literal[]]
+The output value that appears in the "Custom embedder models" Dropdown component.
+api_name: /partial_85
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_85"
+)
+print(result)
+Accepts 0 parameters:
+Returns tuple of 6 elements
+ 
+[0] Literal[]
+The output value that appears in the "Custom embedder model" Dropdown component.
+ 
+[1] Literal[]
+The output value that appears in the "Custom embedder model" Dropdown component.
+ 
+[2] Literal[]
+The output value that appears in the "Custom embedder model" Dropdown component.
+ 
+[3] Literal[]
+The output value that appears in the "Custom embedder model" Dropdown component.
+ 
+[4] Literal[]
+The output value that appears in the "Custom embedder model" Dropdown component.
+ 
+[5] list[Literal[]]
+The output value that appears in the "Custom embedder models" Dropdown component.
+api_name: /partial_86
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_86"
+)
+print(result)
+Accepts 0 parameters:
+Returns tuple of 2 elements
+ 
+[0] Literal[]
+The output value that appears in the "Custom pretrained model" Dropdown component.
+ 
+[1] list[Literal[]]
+The output value that appears in the "Custom pretrained models" Dropdown component.
+api_name: /partial_87
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_87"
+)
+print(result)
+Accepts 0 parameters:
+Returns tuple of 2 elements
+ 
+[0] Literal[]
+The output value that appears in the "Custom pretrained model" Dropdown component.
+ 
+[1] list[Literal[]]
+The output value that appears in the "Custom pretrained models" Dropdown component.
+api_name: /partial_88
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_88"
+)
+print(result)
+Accepts 0 parameters:
+Returns tuple of 2 elements
+ 
+[0] Literal[]
+The output value that appears in the "Custom pretrained model" Dropdown component.
+ 
+[1] list[Literal[]]
+The output value that appears in the "Custom pretrained models" Dropdown component.
+api_name: /partial_89
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_89"
+)
+print(result)
+Accepts 0 parameters:
+Returns tuple of 2 elements
+ 
+[0] Literal[]
+The output value that appears in the "Custom pretrained model" Dropdown component.
+ 
+[1] list[Literal[]]
+The output value that appears in the "Custom pretrained models" Dropdown component.
+api_name: /partial_90
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_90"
+)
+print(result)
+Accepts 0 parameters:
+Returns tuple of 4 elements
+ 
+[0] Literal[]
+The output value that appears in the "Model name" Dropdown component.
+ 
+[1] Literal[]
+The output value that appears in the "Model name" Dropdown component.
+ 
+[2] Literal[]
+The output value that appears in the "Model name" Dropdown component.
+ 
+[3] list[Literal[]]
+The output value that appears in the "Training models" Dropdown component.
+api_name: /partial_91
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_91"
+)
+print(result)
+Accepts 0 parameters:
+Returns tuple of 4 elements
+ 
+[0] Literal[]
+The output value that appears in the "Model name" Dropdown component.
+ 
+[1] Literal[]
+The output value that appears in the "Model name" Dropdown component.
+ 
+[2] Literal[]
+The output value that appears in the "Model name" Dropdown component.
+ 
+[3] list[Literal[]]
+The output value that appears in the "Training models" Dropdown component.
+api_name: /partial_92
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_92"
+)
+print(result)
+Accepts 0 parameters:
+Returns tuple of 4 elements
+ 
+[0] Literal[]
+The output value that appears in the "Model name" Dropdown component.
+ 
+[1] Literal[]
+The output value that appears in the "Model name" Dropdown component.
+ 
+[2] Literal[]
+The output value that appears in the "Model name" Dropdown component.
+ 
+[3] list[Literal[]]
+The output value that appears in the "Training models" Dropdown component.
+api_name: /_wrapped_fn_24
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		confirm=False,
+		param_1=[],
+		api_name="/_wrapped_fn_24"
+)
+print(result)
+Accepts 2 parameters:
+ 
+confirm bool Default: False
+The input value that is provided in the "parameter_687" Checkbox component.
+ 
+param_1 list[Literal[]] Required
+The input value that is provided in the "Song directories" Dropdown component.
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /partial_93
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_93"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /_wrapped_fn_25
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		confirm=False,
+		api_name="/_wrapped_fn_25"
+)
+print(result)
+Accepts 1 parameter:
+ 
+confirm bool Default: False
+The input value that is provided in the "parameter_687" Checkbox component.
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /partial_94
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_94"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /_wrapped_fn_26
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		confirm=False,
+		param_1=[],
+		api_name="/_wrapped_fn_26"
+)
+print(result)
+Accepts 2 parameters:
+ 
+confirm bool Default: False
+The input value that is provided in the "parameter_687" Checkbox component.
+ 
+param_1 list[Literal[]] Required
+The input value that is provided in the "Speech audio files" Dropdown component.
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /partial_95
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_95"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /_wrapped_fn_27
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		confirm=False,
+		api_name="/_wrapped_fn_27"
+)
+print(result)
+Accepts 1 parameter:
+ 
+confirm bool Default: False
+The input value that is provided in the "parameter_687" Checkbox component.
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /partial_96
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_96"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /_wrapped_fn_28
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		confirm=False,
+		param_1=[],
+		api_name="/_wrapped_fn_28"
+)
+print(result)
+Accepts 2 parameters:
+ 
+confirm bool Default: False
+The input value that is provided in the "parameter_687" Checkbox component.
+ 
+param_1 list[Literal[]] Required
+The input value that is provided in the "Output audio files" Dropdown component.
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /partial_97
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_97"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /_wrapped_fn_29
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		confirm=False,
+		api_name="/_wrapped_fn_29"
+)
+print(result)
+Accepts 1 parameter:
+ 
+confirm bool Default: False
+The input value that is provided in the "parameter_687" Checkbox component.
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /partial_98
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_98"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /_wrapped_fn_30
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		confirm=False,
+		param_1=[],
+		api_name="/_wrapped_fn_30"
+)
+print(result)
+Accepts 2 parameters:
+ 
+confirm bool Default: False
+The input value that is provided in the "parameter_687" Checkbox component.
+ 
+param_1 list[Literal[]] Required
+The input value that is provided in the "Dataset audio files" Dropdown component.
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /partial_99
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_99"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /_wrapped_fn_31
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		confirm=False,
+		api_name="/_wrapped_fn_31"
+)
+print(result)
+Accepts 1 parameter:
+ 
+confirm bool Default: False
+The input value that is provided in the "parameter_687" Checkbox component.
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /partial_100
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_100"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /_wrapped_fn_32
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		confirm=False,
+		api_name="/_wrapped_fn_32"
+)
+print(result)
+Accepts 1 parameter:
+ 
+confirm bool Default: False
+The input value that is provided in the "parameter_687" Checkbox component.
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /partial_101
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_101"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /partial_102
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_102"
+)
+print(result)
+Accepts 0 parameters:
+Returns tuple of 8 elements
+ 
+[0] list[Literal[]]
+The output value that appears in the "Song directories" Dropdown component.
+ 
+[1] Literal[]
+The output value that appears in the "Source" Dropdown component.
+ 
+[2] Literal[]
+The output value that appears in the "Source" Dropdown component.
+ 
+[3] Literal[]
+The output value that appears in the "Song directory" Dropdown component.
+ 
+[4] Literal[]
+The output value that appears in the "Song directory" Dropdown component.
+ 
+[5] Literal[]
+The output value that appears in the "Song directory" Dropdown component.
+ 
+[6] Literal[]
+The output value that appears in the "Song directory" Dropdown component.
+ 
+[7] Literal[]
+The output value that appears in the "Song directory" Dropdown component.
+api_name: /partial_103
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_103"
+)
+print(result)
+Accepts 0 parameters:
+Returns tuple of 8 elements
+ 
+[0] list[Literal[]]
+The output value that appears in the "Song directories" Dropdown component.
+ 
+[1] Literal[]
+The output value that appears in the "Source" Dropdown component.
+ 
+[2] Literal[]
+The output value that appears in the "Source" Dropdown component.
+ 
+[3] Literal[]
+The output value that appears in the "Song directory" Dropdown component.
+ 
+[4] Literal[]
+The output value that appears in the "Song directory" Dropdown component.
+ 
+[5] Literal[]
+The output value that appears in the "Song directory" Dropdown component.
+ 
+[6] Literal[]
+The output value that appears in the "Song directory" Dropdown component.
+ 
+[7] Literal[]
+The output value that appears in the "Song directory" Dropdown component.
+api_name: /partial_104
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_104"
+)
+print(result)
+Accepts 0 parameters:
+Returns tuple of 8 elements
+ 
+[0] list[Literal[]]
+The output value that appears in the "Song directories" Dropdown component.
+ 
+[1] Literal[]
+The output value that appears in the "Source" Dropdown component.
+ 
+[2] Literal[]
+The output value that appears in the "Source" Dropdown component.
+ 
+[3] Literal[]
+The output value that appears in the "Song directory" Dropdown component.
+ 
+[4] Literal[]
+The output value that appears in the "Song directory" Dropdown component.
+ 
+[5] Literal[]
+The output value that appears in the "Song directory" Dropdown component.
+ 
+[6] Literal[]
+The output value that appears in the "Song directory" Dropdown component.
+ 
+[7] Literal[]
+The output value that appears in the "Song directory" Dropdown component.
+api_name: /partial_105
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_105"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+ 
+list[Literal[]]
+The output value that appears in the "Speech audio files" Dropdown component.
+api_name: /partial_106
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_106"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+ 
+list[Literal[]]
+The output value that appears in the "Speech audio files" Dropdown component.
+api_name: /partial_107
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_107"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+ 
+list[Literal[]]
+The output value that appears in the "Speech audio files" Dropdown component.
+api_name: /partial_108
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_108"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+ 
+list[Literal[]]
+The output value that appears in the "Output audio files" Dropdown component.
+api_name: /partial_109
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_109"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+ 
+list[Literal[]]
+The output value that appears in the "Output audio files" Dropdown component.
+api_name: /partial_110
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_110"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+ 
+list[Literal[]]
+The output value that appears in the "Output audio files" Dropdown component.
+api_name: /partial_111
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_111"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+ 
+list[Literal[]]
+The output value that appears in the "Dataset audio files" Dropdown component.
+api_name: /partial_112
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_112"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+ 
+Literal[]
+The output value that appears in the "Dataset path" Dropdown component.
+api_name: /partial_113
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_113"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+ 
+list[Literal[]]
+The output value that appears in the "Dataset audio files" Dropdown component.
+api_name: /partial_114
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_114"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+ 
+Literal[]
+The output value that appears in the "Dataset path" Dropdown component.
+api_name: /partial_115
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_115"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+ 
+list[Literal[]]
+The output value that appears in the "Dataset audio files" Dropdown component.
+api_name: /partial_116
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_116"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+ 
+Literal[]
+The output value that appears in the "Dataset path" Dropdown component.
+api_name: /_wrapped_fn_33
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		param_0="Default Configuration",
+		param_1=["rmvpe"],
+		param_2=0.3,
+		param_3=1,
+		param_4=0.33,
+		param_5=128,
+		param_6=False,
+		param_7=1,
+		param_8=0,
+		param_9="44100",
+		param_10="mp3",
+		param_11=0.7,
+		param_12=0.15,
+		param_13=0.2,
+		param_14=0.8,
+		param_15=0.7,
+		param_16=0,
+		param_17=0,
+		param_18=0,
+		param_19=0,
+		param_20=0,
+		param_21=["rmvpe"],
+		param_22=0.3,
+		param_23=1,
+		param_24=0.33,
+		param_25=128,
+		param_26=False,
+		param_27=1,
+		param_28=0,
+		param_29="44100",
+		param_30="mp3",
+		param_31=0.7,
+		param_32=0.15,
+		param_33=0.2,
+		param_34=0.8,
+		param_35=0.7,
+		param_36=0,
+		param_37=0,
+		param_38=0,
+		param_39="UVR-MDX-NET-Voc_FT.onnx",
+		param_40="512",
+		param_41=0,
+		param_42=0,
+		param_43=0,
+		param_44=0,
+		param_45=["rmvpe"],
+		param_46=0.3,
+		param_47=1,
+		param_48=0.33,
+		param_49=128,
+		param_50=False,
+		param_51=1,
+		param_52=0,
+		param_53="44100",
+		param_54="mp3",
+		param_55=0,
+		param_56=0,
+		param_57=0,
+		param_58=0,
+		param_59=0,
+		param_60=0.7,
+		param_61=0,
+		param_62=["rmvpe"],
+		param_63=0.3,
+		param_64=1,
+		param_65=0.33,
+		param_66=128,
+		param_67=False,
+		param_68=1,
+		param_69=0,
+		param_70="44100",
+		param_71="mp3",
+		param_72=0,
+		param_73=0,
+		param_74=0,
+		param_75=0,
+		param_76=0,
+		param_77=0.7,
+		param_78=0,
+		param_79="40000",
+		param_80=True,
+		param_81=0.7,
+		param_82=3,
+		param_83=0.3,
+		param_84=128,
+		param_85=2,
+		param_86=500,
+		param_87=8,
+		param_88=50,
+		param_89="HiFi-GAN",
+		param_90="Auto",
+		param_91=10,
+		param_92=False,
+		param_93=False,
+		param_94=False,
+		param_95=False,
+		param_96=False,
+		api_name="/_wrapped_fn_33"
+)
+print(result)
+Accepts 97 parameters:
+ 
+param_0 str Default: "Default Configuration"
+The input value that is provided in the "Configuration name" Textbox component.
+ 
+param_1 list[Literal['rmvpe', 'crepe', 'crepe-tiny', 'fcpe']] Default: ["rmvpe"]
+The input value that is provided in the "Pitch extraction algorithm(s)" Dropdown component.
+ 
+param_2 float Default: 0.3
+The input value that is provided in the "Index rate" Slider component.
+ 
+param_3 float Default: 1
+The input value that is provided in the "RMS mix rate" Slider component.
+ 
+param_4 float Default: 0.33
+The input value that is provided in the "Protect rate" Slider component.
+ 
+param_5 float Default: 128
+The input value that is provided in the "Hop length" Slider component.
+ 
+param_6 bool Default: False
+The input value that is provided in the "Split input voice" Checkbox component.
+ 
+param_7 float Default: 1
+The input value that is provided in the "Autotune intensity" Slider component.
+ 
+param_8 float Default: 0
+The input value that is provided in the "Speaker ID" Number component.
+ 
+param_9 Literal['16000', '44100', '48000', '96000', '192000'] Default: "44100"
+The input value that is provided in the "Output sample rate" Dropdown component.
+ 
+param_10 Literal['mp3', 'wav', 'flac', 'ogg', 'm4a', 'aac'] Default: "mp3"
+The input value that is provided in the "Output format" Dropdown component.
+ 
+param_11 float Default: 0.7
+The input value that is provided in the "Cleaning intensity" Slider component.
+ 
+param_12 float Default: 0.15
+The input value that is provided in the "Room size" Slider component.
+ 
+param_13 float Default: 0.2
+The input value that is provided in the "Wetness level" Slider component.
+ 
+param_14 float Default: 0.8
+The input value that is provided in the "Dryness level" Slider component.
+ 
+param_15 float Default: 0.7
+The input value that is provided in the "Damping level" Slider component.
+ 
+param_16 float Default: 0
+The input value that is provided in the "Main gain" Slider component.
+ 
+param_17 float Default: 0
+The input value that is provided in the "Instrumentals gain" Slider component.
+ 
+param_18 float Default: 0
+The input value that is provided in the "Backup gain" Slider component.
+ 
+param_19 float Default: 0
+The input value that is provided in the "Vocal pitch shift" Slider component.
+ 
+param_20 float Default: 0
+The input value that is provided in the "Overall pitch shift" Slider component.
+ 
+param_21 list[Literal['rmvpe', 'crepe', 'crepe-tiny', 'fcpe']] Default: ["rmvpe"]
+The input value that is provided in the "Pitch extraction algorithm(s)" Dropdown component.
+ 
+param_22 float Default: 0.3
+The input value that is provided in the "Index rate" Slider component.
+ 
+param_23 float Default: 1
+The input value that is provided in the "RMS mix rate" Slider component.
+ 
+param_24 float Default: 0.33
+The input value that is provided in the "Protect rate" Slider component.
+ 
+param_25 float Default: 128
+The input value that is provided in the "Hop length" Slider component.
+ 
+param_26 bool Default: False
+The input value that is provided in the "Split input voice" Checkbox component.
+ 
+param_27 float Default: 1
+The input value that is provided in the "Autotune intensity" Slider component.
+ 
+param_28 float Default: 0
+The input value that is provided in the "Speaker ID" Number component.
+ 
+param_29 Literal['16000', '44100', '48000', '96000', '192000'] Default: "44100"
+The input value that is provided in the "Output sample rate" Dropdown component.
+ 
+param_30 Literal['mp3', 'wav', 'flac', 'ogg', 'm4a', 'aac'] Default: "mp3"
+The input value that is provided in the "Output format" Dropdown component.
+ 
+param_31 float Default: 0.7
+The input value that is provided in the "Cleaning intensity" Slider component.
+ 
+param_32 float Default: 0.15
+The input value that is provided in the "Room size" Slider component.
+ 
+param_33 float Default: 0.2
+The input value that is provided in the "Wetness level" Slider component.
+ 
+param_34 float Default: 0.8
+The input value that is provided in the "Dryness level" Slider component.
+ 
+param_35 float Default: 0.7
+The input value that is provided in the "Damping level" Slider component.
+ 
+param_36 float Default: 0
+The input value that is provided in the "Main gain" Slider component.
+ 
+param_37 float Default: 0
+The input value that is provided in the "Instrumentals gain" Slider component.
+ 
+param_38 float Default: 0
+The input value that is provided in the "Backup gain" Slider component.
+ 
+param_39 Literal['UVR-MDX-NET-Voc_FT.onnx', 'UVR_MDXNET_KARA_2.onnx', 'Reverb_HQ_By_FoxJoy.onnx'] Default: "UVR-MDX-NET-Voc_FT.onnx"
+The input value that is provided in the "Separation model" Dropdown component.
+ 
+param_40 Literal['64', '128', '256', '512', '1024', '2048'] Default: "512"
+The input value that is provided in the "Segment size" Radio component.
+ 
+param_41 float Default: 0
+The input value that is provided in the "Pitch shift (octaves)" Slider component.
+ 
+param_42 float Default: 0
+The input value that is provided in the "Pitch shift (semi-tones)" Slider component.
+ 
+param_43 float Default: 0
+The input value that is provided in the "Instrumental pitch shift" Slider component.
+ 
+param_44 float Default: 0
+The input value that is provided in the "Backup vocal pitch shift" Slider component.
+ 
+param_45 list[Literal['rmvpe', 'crepe', 'crepe-tiny', 'fcpe']] Default: ["rmvpe"]
+The input value that is provided in the "Pitch extraction algorithm(s)" Dropdown component.
+ 
+param_46 float Default: 0.3
+The input value that is provided in the "Index rate" Slider component.
+ 
+param_47 float Default: 1
+The input value that is provided in the "RMS mix rate" Slider component.
+ 
+param_48 float Default: 0.33
+The input value that is provided in the "Protect rate" Slider component.
+ 
+param_49 float Default: 128
+The input value that is provided in the "Hop length" Slider component.
+ 
+param_50 bool Default: False
+The input value that is provided in the "Split input voice" Checkbox component.
+ 
+param_51 float Default: 1
+The input value that is provided in the "Autotune intensity" Slider component.
+ 
+param_52 float Default: 0
+The input value that is provided in the "Speaker ID" Number component.
+ 
+param_53 Literal['16000', '44100', '48000', '96000', '192000'] Default: "44100"
+The input value that is provided in the "Output sample rate" Dropdown component.
+ 
+param_54 Literal['mp3', 'wav', 'flac', 'ogg', 'm4a', 'aac'] Default: "mp3"
+The input value that is provided in the "Output format" Dropdown component.
+ 
+param_55 float Default: 0
+The input value that is provided in the "Octave shift" Slider component.
+ 
+param_56 float Default: 0
+The input value that is provided in the "Semitone shift" Slider component.
+ 
+param_57 float Default: 0
+The input value that is provided in the "Edge TTS pitch shift" Slider component.
+ 
+param_58 float Default: 0
+The input value that is provided in the "TTS speed change" Slider component.
+ 
+param_59 float Default: 0
+The input value that is provided in the "TTS volume change" Slider component.
+ 
+param_60 float Default: 0.7
+The input value that is provided in the "Cleaning intensity" Slider component.
+ 
+param_61 float Default: 0
+The input value that is provided in the "Output gain" Slider component.
+ 
+param_62 list[Literal['rmvpe', 'crepe', 'crepe-tiny', 'fcpe']] Default: ["rmvpe"]
+The input value that is provided in the "Pitch extraction algorithm(s)" Dropdown component.
+ 
+param_63 float Default: 0.3
+The input value that is provided in the "Index rate" Slider component.
+ 
+param_64 float Default: 1
+The input value that is provided in the "RMS mix rate" Slider component.
+ 
+param_65 float Default: 0.33
+The input value that is provided in the "Protect rate" Slider component.
+ 
+param_66 float Default: 128
+The input value that is provided in the "Hop length" Slider component.
+ 
+param_67 bool Default: False
+The input value that is provided in the "Split input voice" Checkbox component.
+ 
+param_68 float Default: 1
+The input value that is provided in the "Autotune intensity" Slider component.
+ 
+param_69 float Default: 0
+The input value that is provided in the "Speaker ID" Number component.
+ 
+param_70 Literal['16000', '44100', '48000', '96000', '192000'] Default: "44100"
+The input value that is provided in the "Output sample rate" Dropdown component.
+ 
+param_71 Literal['mp3', 'wav', 'flac', 'ogg', 'm4a', 'aac'] Default: "mp3"
+The input value that is provided in the "Output format" Dropdown component.
+ 
+param_72 float Default: 0
+The input value that is provided in the "Octave shift" Slider component.
+ 
+param_73 float Default: 0
+The input value that is provided in the "Semitone shift" Slider component.
+ 
+param_74 float Default: 0
+The input value that is provided in the "Edge TTS pitch shift" Slider component.
+ 
+param_75 float Default: 0
+The input value that is provided in the "TTS speed change" Slider component.
+ 
+param_76 float Default: 0
+The input value that is provided in the "TTS volume change" Slider component.
+ 
+param_77 float Default: 0.7
+The input value that is provided in the "Cleaning intensity" Slider component.
+ 
+param_78 float Default: 0
+The input value that is provided in the "Output gain" Slider component.
+ 
+param_79 Literal['32000', '40000', '48000'] Default: "40000"
+The input value that is provided in the "Sample rate" Dropdown component.
+ 
+param_80 bool Default: True
+The input value that is provided in the "Filter audio" Checkbox component.
+ 
+param_81 float Default: 0.7
+The input value that is provided in the "Cleaning intensity" Slider component.
+ 
+param_82 float Default: 3
+The input value that is provided in the "Chunk length" Slider component.
+ 
+param_83 float Default: 0.3
+The input value that is provided in the "Overlap length" Slider component.
+ 
+param_84 float Default: 128
+The input value that is provided in the "Hop length" Slider component.
+ 
+param_85 float Default: 2
+The input value that is provided in the "Include mutes" Slider component.
+ 
+param_86 float Default: 500
+The input value that is provided in the "Number of epochs" Slider component.
+ 
+param_87 float Default: 8
+The input value that is provided in the "Batch size" Slider component.
+ 
+param_88 float Default: 50
+The input value that is provided in the "Overtraining threshold" Slider component.
+ 
+param_89 Literal['HiFi-GAN', 'MRF HiFi-GAN', 'RefineGAN'] Default: "HiFi-GAN"
+The input value that is provided in the "Vocoder" Dropdown component.
+ 
+param_90 Literal['Auto', 'Faiss', 'KMeans'] Default: "Auto"
+The input value that is provided in the "Index algorithm" Dropdown component.
+ 
+param_91 float Default: 10
+The input value that is provided in the "Save interval" Slider component.
+ 
+param_92 bool Default: False
+The input value that is provided in the "Save all checkpoints" Checkbox component.
+ 
+param_93 bool Default: False
+The input value that is provided in the "Save all weights" Checkbox component.
+ 
+param_94 bool Default: False
+The input value that is provided in the "Clear saved data" Checkbox component.
+ 
+param_95 bool Default: False
+The input value that is provided in the "Preload dataset" Checkbox component.
+ 
+param_96 bool Default: False
+The input value that is provided in the "Reduce memory usage" Checkbox component.
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /partial_117
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_117"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /partial_118
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		value="Default Configuration",
+		api_name="/partial_118"
+)
+print(result)
+Accepts 1 parameter:
+ 
+value str Default: "Default Configuration"
+The input value that is provided in the "Configuration name" Textbox component.
+Returns 1 element
+ 
+Literal[]
+The output value that appears in the "Configuration name" Dropdown component.
+api_name: /partial_119
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_119"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+ 
+list[Literal[]]
+The output value that appears in the "Configuration names" Dropdown component.
+api_name: /_wrapped_fn_34
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		param_0=None,
+		api_name="/_wrapped_fn_34"
+)
+print(result)
+Accepts 1 parameter:
+ 
+param_0 Literal[] Required
+The input value that is provided in the "Configuration name" Dropdown component.
+Returns tuple of 96 elements
+ 
+[0] list[Literal['rmvpe', 'crepe', 'crepe-tiny', 'fcpe']]
+The output value that appears in the "Pitch extraction algorithm(s)" Dropdown component.
+ 
+[1] float
+The output value that appears in the "Index rate" Slider component.
+ 
+[2] float
+The output value that appears in the "RMS mix rate" Slider component.
+ 
+[3] float
+The output value that appears in the "Protect rate" Slider component.
+ 
+[4] float
+The output value that appears in the "Hop length" Slider component.
+ 
+[5] bool
+The output value that appears in the "Split input voice" Checkbox component.
+ 
+[6] float
+The output value that appears in the "Autotune intensity" Slider component.
+ 
+[7] float
+The output value that appears in the "Speaker ID" Number component.
+ 
+[8] Literal['16000', '44100', '48000', '96000', '192000']
+The output value that appears in the "Output sample rate" Dropdown component.
+ 
+[9] Literal['mp3', 'wav', 'flac', 'ogg', 'm4a', 'aac']
+The output value that appears in the "Output format" Dropdown component.
+ 
+[10] float
+The output value that appears in the "Cleaning intensity" Slider component.
+ 
+[11] float
+The output value that appears in the "Room size" Slider component.
+ 
+[12] float
+The output value that appears in the "Wetness level" Slider component.
+ 
+[13] float
+The output value that appears in the "Dryness level" Slider component.
+ 
+[14] float
+The output value that appears in the "Damping level" Slider component.
+ 
+[15] float
+The output value that appears in the "Main gain" Slider component.
+ 
+[16] float
+The output value that appears in the "Instrumentals gain" Slider component.
+ 
+[17] float
+The output value that appears in the "Backup gain" Slider component.
+ 
+[18] float
+The output value that appears in the "Vocal pitch shift" Slider component.
+ 
+[19] float
+The output value that appears in the "Overall pitch shift" Slider component.
+ 
+[20] list[Literal['rmvpe', 'crepe', 'crepe-tiny', 'fcpe']]
+The output value that appears in the "Pitch extraction algorithm(s)" Dropdown component.
+ 
+[21] float
+The output value that appears in the "Index rate" Slider component.
+ 
+[22] float
+The output value that appears in the "RMS mix rate" Slider component.
+ 
+[23] float
+The output value that appears in the "Protect rate" Slider component.
+ 
+[24] float
+The output value that appears in the "Hop length" Slider component.
+ 
+[25] bool
+The output value that appears in the "Split input voice" Checkbox component.
+ 
+[26] float
+The output value that appears in the "Autotune intensity" Slider component.
+ 
+[27] float
+The output value that appears in the "Speaker ID" Number component.
+ 
+[28] Literal['16000', '44100', '48000', '96000', '192000']
+The output value that appears in the "Output sample rate" Dropdown component.
+ 
+[29] Literal['mp3', 'wav', 'flac', 'ogg', 'm4a', 'aac']
+The output value that appears in the "Output format" Dropdown component.
+ 
+[30] float
+The output value that appears in the "Cleaning intensity" Slider component.
+ 
+[31] float
+The output value that appears in the "Room size" Slider component.
+ 
+[32] float
+The output value that appears in the "Wetness level" Slider component.
+ 
+[33] float
+The output value that appears in the "Dryness level" Slider component.
+ 
+[34] float
+The output value that appears in the "Damping level" Slider component.
+ 
+[35] float
+The output value that appears in the "Main gain" Slider component.
+ 
+[36] float
+The output value that appears in the "Instrumentals gain" Slider component.
+ 
+[37] float
+The output value that appears in the "Backup gain" Slider component.
+ 
+[38] Literal['UVR-MDX-NET-Voc_FT.onnx', 'UVR_MDXNET_KARA_2.onnx', 'Reverb_HQ_By_FoxJoy.onnx']
+The output value that appears in the "Separation model" Dropdown component.
+ 
+[39] Literal['64', '128', '256', '512', '1024', '2048']
+The output value that appears in the "Segment size" Radio component.
+ 
+[40] float
+The output value that appears in the "Pitch shift (octaves)" Slider component.
+ 
+[41] float
+The output value that appears in the "Pitch shift (semi-tones)" Slider component.
+ 
+[42] float
+The output value that appears in the "Instrumental pitch shift" Slider component.
+ 
+[43] float
+The output value that appears in the "Backup vocal pitch shift" Slider component.
+ 
+[44] list[Literal['rmvpe', 'crepe', 'crepe-tiny', 'fcpe']]
+The output value that appears in the "Pitch extraction algorithm(s)" Dropdown component.
+ 
+[45] float
+The output value that appears in the "Index rate" Slider component.
+ 
+[46] float
+The output value that appears in the "RMS mix rate" Slider component.
+ 
+[47] float
+The output value that appears in the "Protect rate" Slider component.
+ 
+[48] float
+The output value that appears in the "Hop length" Slider component.
+ 
+[49] bool
+The output value that appears in the "Split input voice" Checkbox component.
+ 
+[50] float
+The output value that appears in the "Autotune intensity" Slider component.
+ 
+[51] float
+The output value that appears in the "Speaker ID" Number component.
+ 
+[52] Literal['16000', '44100', '48000', '96000', '192000']
+The output value that appears in the "Output sample rate" Dropdown component.
+ 
+[53] Literal['mp3', 'wav', 'flac', 'ogg', 'm4a', 'aac']
+The output value that appears in the "Output format" Dropdown component.
+ 
+[54] float
+The output value that appears in the "Octave shift" Slider component.
+ 
+[55] float
+The output value that appears in the "Semitone shift" Slider component.
+ 
+[56] float
+The output value that appears in the "Edge TTS pitch shift" Slider component.
+ 
+[57] float
+The output value that appears in the "TTS speed change" Slider component.
+ 
+[58] float
+The output value that appears in the "TTS volume change" Slider component.
+ 
+[59] float
+The output value that appears in the "Cleaning intensity" Slider component.
+ 
+[60] float
+The output value that appears in the "Output gain" Slider component.
+ 
+[61] list[Literal['rmvpe', 'crepe', 'crepe-tiny', 'fcpe']]
+The output value that appears in the "Pitch extraction algorithm(s)" Dropdown component.
+ 
+[62] float
+The output value that appears in the "Index rate" Slider component.
+ 
+[63] float
+The output value that appears in the "RMS mix rate" Slider component.
+ 
+[64] float
+The output value that appears in the "Protect rate" Slider component.
+ 
+[65] float
+The output value that appears in the "Hop length" Slider component.
+ 
+[66] bool
+The output value that appears in the "Split input voice" Checkbox component.
+ 
+[67] float
+The output value that appears in the "Autotune intensity" Slider component.
+ 
+[68] float
+The output value that appears in the "Speaker ID" Number component.
+ 
+[69] Literal['16000', '44100', '48000', '96000', '192000']
+The output value that appears in the "Output sample rate" Dropdown component.
+ 
+[70] Literal['mp3', 'wav', 'flac', 'ogg', 'm4a', 'aac']
+The output value that appears in the "Output format" Dropdown component.
+ 
+[71] float
+The output value that appears in the "Octave shift" Slider component.
+ 
+[72] float
+The output value that appears in the "Semitone shift" Slider component.
+ 
+[73] float
+The output value that appears in the "Edge TTS pitch shift" Slider component.
+ 
+[74] float
+The output value that appears in the "TTS speed change" Slider component.
+ 
+[75] float
+The output value that appears in the "TTS volume change" Slider component.
+ 
+[76] float
+The output value that appears in the "Cleaning intensity" Slider component.
+ 
+[77] float
+The output value that appears in the "Output gain" Slider component.
+ 
+[78] Literal['32000', '40000', '48000']
+The output value that appears in the "Sample rate" Dropdown component.
+ 
+[79] bool
+The output value that appears in the "Filter audio" Checkbox component.
+ 
+[80] float
+The output value that appears in the "Cleaning intensity" Slider component.
+ 
+[81] float
+The output value that appears in the "Chunk length" Slider component.
+ 
+[82] float
+The output value that appears in the "Overlap length" Slider component.
+ 
+[83] float
+The output value that appears in the "Hop length" Slider component.
+ 
+[84] float
+The output value that appears in the "Include mutes" Slider component.
+ 
+[85] float
+The output value that appears in the "Number of epochs" Slider component.
+ 
+[86] float
+The output value that appears in the "Batch size" Slider component.
+ 
+[87] float
+The output value that appears in the "Overtraining threshold" Slider component.
+ 
+[88] Literal['HiFi-GAN', 'MRF HiFi-GAN', 'RefineGAN']
+The output value that appears in the "Vocoder" Dropdown component.
+ 
+[89] Literal['Auto', 'Faiss', 'KMeans']
+The output value that appears in the "Index algorithm" Dropdown component.
+ 
+[90] float
+The output value that appears in the "Save interval" Slider component.
+ 
+[91] bool
+The output value that appears in the "Save all checkpoints" Checkbox component.
+ 
+[92] bool
+The output value that appears in the "Save all weights" Checkbox component.
+ 
+[93] bool
+The output value that appears in the "Clear saved data" Checkbox component.
+ 
+[94] bool
+The output value that appears in the "Preload dataset" Checkbox component.
+ 
+[95] bool
+The output value that appears in the "Reduce memory usage" Checkbox component.
+api_name: /partial_120
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_120"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /_wrapped_fn_35
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		confirm=False,
+		param_1=[],
+		api_name="/_wrapped_fn_35"
+)
+print(result)
+Accepts 2 parameters:
+ 
+confirm bool Default: False
+The input value that is provided in the "parameter_733" Checkbox component.
+ 
+param_1 list[Literal[]] Required
+The input value that is provided in the "Configuration names" Dropdown component.
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /partial_121
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_121"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /_wrapped_fn_36
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		confirm=False,
+		api_name="/_wrapped_fn_36"
+)
+print(result)
+Accepts 1 parameter:
+ 
+confirm bool Default: False
+The input value that is provided in the "parameter_733" Checkbox component.
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /partial_122
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_122"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /partial_123
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_123"
+)
+print(result)
+Accepts 0 parameters:
+Returns tuple of 2 elements
+ 
+[0] Literal[]
+The output value that appears in the "Configuration name" Dropdown component.
+ 
+[1] list[Literal[]]
+The output value that appears in the "Configuration names" Dropdown component.
+api_name: /partial_124
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_124"
+)
+print(result)
+Accepts 0 parameters:
+Returns tuple of 2 elements
+ 
+[0] Literal[]
+The output value that appears in the "Configuration name" Dropdown component.
+ 
+[1] list[Literal[]]
+The output value that appears in the "Configuration names" Dropdown component.
+api_name: /_wrapped_fn_37
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		confirm=False,
+		api_name="/_wrapped_fn_37"
+)
+print(result)
+Accepts 1 parameter:
+ 
+confirm bool Default: False
+The input value that is provided in the "parameter_733" Checkbox component.
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /partial_125
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/partial_125"
+)
+print(result)
+Accepts 0 parameters:
+Returns 1 element
+ 
+str
+The output value that appears in the "Output message" Textbox component.
+api_name: /_init_dropdowns
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		api_name="/_init_dropdowns"
+)
+print(result)
+Accepts 0 parameters:
+Returns tuple of 33 elements
+ 
+[0] Literal[]
+The output value that appears in the "Edge TTS voice" Dropdown component.
+ 
+[1] Literal[]
+The output value that appears in the "Edge TTS voice" Dropdown component.
+ 
+[2] Literal[]
+The output value that appears in the "Voice model" Dropdown component.
+ 
+[3] Literal[]
+The output value that appears in the "Voice model" Dropdown component.
+ 
+[4] Literal[]
+The output value that appears in the "Voice model" Dropdown component.
+ 
+[5] Literal[]
+The output value that appears in the "Voice model" Dropdown component.
+ 
+[6] list[Literal[]]
+The output value that appears in the "Voice models" Dropdown component.
+ 
+[7] Literal[]
+The output value that appears in the "Custom embedder model" Dropdown component.
+ 
+[8] Literal[]
+The output value that appears in the "Custom embedder model" Dropdown component.
+ 
+[9] Literal[]
+The output value that appears in the "Custom embedder model" Dropdown component.
+ 
+[10] Literal[]
+The output value that appears in the "Custom embedder model" Dropdown component.
+ 
+[11] Literal[]
+The output value that appears in the "Custom embedder model" Dropdown component.
+ 
+[12] list[Literal[]]
+The output value that appears in the "Custom embedder models" Dropdown component.
+ 
+[13] Literal[]
+The output value that appears in the "Custom pretrained model" Dropdown component.
+ 
+[14] list[Literal[]]
+The output value that appears in the "Custom pretrained models" Dropdown component.
+ 
+[15] Literal[]
+The output value that appears in the "Model name" Dropdown component.
+ 
+[16] Literal[]
+The output value that appears in the "Model name" Dropdown component.
+ 
+[17] Literal[]
+The output value that appears in the "Model name" Dropdown component.
+ 
+[18] list[Literal[]]
+The output value that appears in the "Training models" Dropdown component.
+ 
+[19] Literal[]
+The output value that appears in the "Source" Dropdown component.
+ 
+[20] Literal[]
+The output value that appears in the "Source" Dropdown component.
+ 
+[21] Literal[]
+The output value that appears in the "Song directory" Dropdown component.
+ 
+[22] Literal[]
+The output value that appears in the "Song directory" Dropdown component.
+ 
+[23] Literal[]
+The output value that appears in the "Song directory" Dropdown component.
+ 
+[24] Literal[]
+The output value that appears in the "Song directory" Dropdown component.
+ 
+[25] Literal[]
+The output value that appears in the "Song directory" Dropdown component.
+ 
+[26] list[Literal[]]
+The output value that appears in the "Song directories" Dropdown component.
+ 
+[27] Literal[]
+The output value that appears in the "Dataset path" Dropdown component.
+ 
+[28] list[Literal[]]
+The output value that appears in the "Speech audio files" Dropdown component.
+ 
+[29] list[Literal[]]
+The output value that appears in the "Output audio files" Dropdown component.
+ 
+[30] list[Literal[]]
+The output value that appears in the "Dataset audio files" Dropdown component.
+ 
+[31] Literal[]
+The output value that appears in the "Configuration name" Dropdown component.
+ 
+[32] list[Literal[]]
+The output value that appears in the "Configuration names" Dropdown component.
+api_name: /partial_126
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		param_1=None,
+		param_2=None,
+		api_name="/partial_126"
+)
+print(result)
+Accepts 2 parameters:
+ 
+param_1 Literal[] Required
+The input value that is provided in the "Source" Dropdown component.
+ 
+param_2 Literal[] Required
+The input value that is provided in the "Voice model" Dropdown component.
+Returns 1 element
+ 
+str
+The output value that appears in the "Output name" Textbox component.
+api_name: /partial_127
+copy
+from gradio_client import Client, handle_file
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		param_0=handle_file('https://github.com/gradio-app/gradio/raw/main/test/test_files/audio_sample.wav'),
+		param_1=None,
+		api_name="/partial_127"
+)
+print(result)
+Accepts 2 parameters:
+ 
+param_0 filepath Required
+The input value that is provided in the "Main vocals" Audio component. The FileData class is a subclass of the GradioModel class that represents a file object within a Gradio interface. It is used to store file data and metadata when a file is uploaded. Attributes: path: The server file path where the file is stored. url: The normalized server URL pointing to the file. size: The size of the file in bytes. orig_name: The original filename before upload. mime_type: The MIME type of the file. is_stream: Indicates whether the file is a stream. meta: Additional metadata used internally (should not be changed).
+ 
+param_1 Literal[] Required
+The input value that is provided in the "Song directory" Dropdown component.
+Returns 1 element
+ 
+str
+The output value that appears in the "Output name" Textbox component.
+api_name: /partial_128
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		param_0="Hello!!",
+		param_1=None,
+		api_name="/partial_128"
+)
+print(result)
+Accepts 2 parameters:
+ 
+param_0 str Required
+The input value that is provided in the "Source" Textbox component.
+ 
+param_1 Literal[] Required
+The input value that is provided in the "Voice model" Dropdown component.
+Returns 1 element
+ 
+str
+The output value that appears in the "Output name" Textbox component.
+api_name: /partial_129
+copy
+from gradio_client import Client, handle_file
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		param_2=handle_file('https://github.com/gradio-app/gradio/raw/main/test/test_files/audio_sample.wav'),
+		api_name="/partial_129"
+)
+print(result)
+Accepts 1 parameter:
+ 
+param_2 filepath Required
+The input value that is provided in the "Converted speech" Audio component. The FileData class is a subclass of the GradioModel class that represents a file object within a Gradio interface. It is used to store file data and metadata when a file is uploaded. Attributes: path: The server file path where the file is stored. url: The normalized server URL pointing to the file. size: The size of the file in bytes. orig_name: The original filename before upload. mime_type: The MIME type of the file. is_stream: Indicates whether the file is a stream. meta: Additional metadata used internally (should not be changed).
+Returns 1 element
+ 
+str
+The output value that appears in the "Output name" Textbox component.
+api_name: /update_value_8
+copy
+from gradio_client import Client
+
+client = Client("http://127.0.0.1:7860/")
+result = client.predict(
+		x=None,
+		api_name="/update_value_8"
+)
+print(result)
+Accepts 1 parameter:
+ 
+x Literal[] Required
+The input value that is provided in the "Model name" Dropdown component.
+Returns 1 element
+ 
+str
+The output value that appears in the "Upload name" Textbox component.
